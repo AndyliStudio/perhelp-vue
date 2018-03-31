@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
+    <!-- set progressbar -->
+    <vue-progress-bar></vue-progress-bar>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'App'
+  name: 'App',
+  created () {
+    // this.$Progress.start()
+  }
 }
 </script>
 
