@@ -1,15 +1,23 @@
 <template>
   <div id="app">
-    <router-view/>
     <!-- set progressbar -->
     <vue-progress-bar></vue-progress-bar>
+    <Header></Header>
+    <router-view/>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Header from './components/basic/Header.vue'
+import Footer from './components/basic/Footer.vue'
 
 export default {
   name: 'App',
+  components: {
+    Header,
+    Footer
+  },
   created () {
     // this.$Progress.start()
   }
