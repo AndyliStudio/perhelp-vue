@@ -1,11 +1,16 @@
+import { setCookie, deleteCookie } from '../../utils'
+
 // initial state
 const state = {
-  all: []
+  title: '', // page title
+  hasLogined: true, // params judge user is logined
+  token: '',
+  userInfo: {}
 }
 
 // getters
 const getters = {
-  allProducts: state => state.all
+  isLogined: state => state.hasLogined
 }
 
 // actions
@@ -13,13 +18,16 @@ const actions = {}
 
 // mutations
 const mutations = {
-  setProducts (state, products) {
-    state.all = products
+  doLogin (state, data) {
+    setCookie('perhelp_token', data.token)
+    state.token = data.token
+    state.hasLogined = false
   },
-
-  decrementProductInventory (state, { id }) {
-    const product = state.all.find(product => product.id === id)
-    product.inventory--
+  doLogout () {
+    deleteCookie('perhelp_token')
+    state.token = ''
+    state.userInfo = {}
+    state.hasLogined = false
   }
 }
 

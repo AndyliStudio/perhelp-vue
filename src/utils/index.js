@@ -129,3 +129,58 @@ export function createLogger ({
     })
   }
 }
+
+/**
+ * cookie操作类之设置cookie
+ * @param name cookie name
+ * @param value cookie value
+ * @param expires cookie Storage time, one day
+ * @param path cookie path
+ * @param domain cookie domain
+ * @param secure cookie secure
+ */
+export function setCookie (name, value, expires, path, domain, secure) {
+  let newdate = null
+  if (expires) {
+    let date = new Date()
+    newdate = new Date(date.getTime() + 1000 * 24 * 60 * 60 * expires)
+  }
+  let curCookie = name + '=' + escape(value) +
+    ((expires) ? '; expires=' + newdate.toGMTString() : '') +
+    ((path) ? '; path=' + path : '') +
+    ((domain) ? '; domain=' + domain : '') +
+    ((secure) ? '; secure' : '')
+  document.cookie = curCookie
+}
+
+/**
+ * cookie操作类之获取cookie
+ * @param name cookie名字
+ */
+export function getCookie (name) {
+  let prefix = name + '='
+  let cookieStartIndex = document.cookie.indexOf(prefix)
+  if (cookieStartIndex === -1) {
+    return null
+  }
+  let cookieEndIndex = document.cookie.indexOf(';', cookieStartIndex + prefix.length)
+  if (cookieEndIndex === -1) {
+    cookieEndIndex = document.cookie.length
+  }
+  return unescape(document.cookie.substring(cookieStartIndex + prefix.length, cookieEndIndex))
+}
+
+/**
+ * cookie操作类之获取cookie
+ * @param name cookie名字
+ * @param path cookie路径
+ * @param domain cookie域名
+ */
+export function deleteCookie (name, path, domain) {
+  if (this.getCookie(name)) {
+    document.cookie = name + '=' +
+      ((path) ? '; path=' + path : '') +
+      ((domain) ? '; domain=' + domain : '') +
+      '; expires=Thu, 01-Jan-70 00:00:01 GMT'
+  }
+}

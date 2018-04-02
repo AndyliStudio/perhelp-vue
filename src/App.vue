@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{ 'bg': !isLogined }">
     <!-- set progressbar -->
     <vue-progress-bar></vue-progress-bar>
     <Header></Header>
-    <router-view/>
+    <router-view />
     <Footer></Footer>
   </div>
 </template>
@@ -18,19 +18,35 @@ export default {
     Header,
     Footer
   },
-  created () {
-    // this.$Progress.start()
+  computed: {
+    isLogined () {
+      return this.$store.state.app.hasLogined
+    }
   }
 }
 </script>
 
 <style>
+html, body {
+ height: 100%;
+ overflow: hidden;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  position: relative;
+  padding-top: 75px;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+#app.bg {
+    background: url(./assets/images/background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center top;
 }
 </style>
