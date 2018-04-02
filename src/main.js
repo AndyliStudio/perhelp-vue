@@ -17,7 +17,7 @@ import VueApollo from 'vue-apollo'
 // import 'vue-awesome/icons/flag'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
-Vue.component('icon', Icon)
+import VueI18n from 'vue-i18n'
 
 Vue.config.productionTip = false
 // Enable devtools
@@ -67,9 +67,22 @@ router.afterEach(() => {
   router.app.$Progress.finish()
 })
 
+Vue.component('icon', Icon)
+// Language globalization
+Vue.use(VueI18n)
+const i18n = new VueI18n({
+  locale: 'zh-CN', // use `this.$i18n.locale` switch language
+  messages: {
+    'zh-CN': require('./localization/zh'),
+    'zh-HK': require('./localization/hk'),
+    'en-US': require('./localization/en')
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  i18n,
   router,
   store,
   axios,

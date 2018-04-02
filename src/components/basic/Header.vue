@@ -3,7 +3,7 @@
     <nav class="header-inner">
       <router-link :to="{name: 'index'}"><img src="../../assets/images/logotype.png" alt="Perhelp" /></router-link>
       <ul class="header-nav">
-        <li><icon name="cube">xxx</icon></li>
+        <li><icon name="cube">{{ $t("nav.worker") }}</icon></li>
         <li><icon name="list-alt">xxx</icon></li>
         <li><icon name="user">xxx</icon></li>
         <li><icon name="connectdevelop">xxx</icon></li>
