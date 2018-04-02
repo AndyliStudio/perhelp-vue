@@ -9,5 +9,10 @@ module.exports = {
     registe: '註冊',
     logout: 'SIGN OUT',
     word: 'DON\'T BE THE SAME, BE THE BEST. '
+  },
+  footer: {
+    about_us: '關於我們',
+    terms: '使用條款',
+    privite_policy: '私人政策'
   }
 }

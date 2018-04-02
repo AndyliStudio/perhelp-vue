@@ -3,7 +3,9 @@
     <!-- set progressbar -->
     <vue-progress-bar></vue-progress-bar>
     <Header></Header>
-    <router-view />
+    <div class="app-container">
+      <router-view class="app-content" />
+    </div>
     <Footer></Footer>
   </div>
 </template>
@@ -34,19 +36,32 @@ html, body {
 
 #app {
   font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   position: relative;
-  padding-top: 75px;
-  box-sizing: border-box;
-  min-height: 100%;
+  height: 100%;
+  overflow: auto;
 }
 #app.bg {
     background: url(./assets/images/background.jpg) no-repeat;
     background-size: cover;
     background-position: center top;
+}
+.app-container{
+  width: 100%;
+  min-width: 1032px;
+  min-height: 100%;
+  overflow: hidden;
+  padding-top: 90px;
+  padding-bottom: 70px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+.app-content {
+  width: 1100px;
+  padding: 0 16px;
+  margin: 0 auto;
 }
 </style>

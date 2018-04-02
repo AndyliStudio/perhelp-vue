@@ -101,6 +101,7 @@ export default {
       margin-right: 18px;
       margin-left: 27px;
       color: #b2b2b2;
+      list-style: none;
       &>li {
         padding: 0 30px;
         font-size: 15px;
