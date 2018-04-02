@@ -25,6 +25,7 @@
     "sass-loader": "^6.0.7",
     "vue": "^2.5.2",
     "vue-apollo": "^3.0.0-beta.5",
+    "vue-awesome": "^2.3.5",
     "vue-progressbar": "^0.7.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
