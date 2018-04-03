@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/views/hello-world/HelloWorld'
 import LandScape from '@/views/LandScape'
 import ManagementHome from '@/views/ManagementHome'
+import Profile from '@/views/profile/Profile'
 
 Vue.use(Router)
 
@@ -21,5 +22,10 @@ export default new Router({
     path: '/hello-world',
     name: 'hello-world',
     component: HelloWorld
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile
   }]
 })

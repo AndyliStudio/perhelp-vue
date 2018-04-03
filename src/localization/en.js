@@ -19,5 +19,16 @@ module.exports = {
     Participates_task: 'The task of participation',
     send_task: 'send task',
     contract: 'contract'
+  },
+  profile: {
+    introduce: 'Introduce',
+    experience: 'Experience',
+    skill: 'Skill',
+    service: 'Service',
+    works: 'Works',
+    link_acount: 'Linked acount',
+    join_team: 'Joined team',
+    my_honour: 'Honours',
+    add: 'Add'
   }
 }

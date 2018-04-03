@@ -19,5 +19,16 @@ module.exports = {
     Participates_task: '參與的任務',
     send_task: '發出的任務',
     contract: '合約'
+  },
+  profile: {
+    introduce: '我的簡介',
+    experience: '工作經驗',
+    skill: '技能',
+    service: '服務範圍',
+    works: '作品集',
+    link_acount: '已連接的社交賬號',
+    join_team: '已加入的團隊',
+    my_honour: '已獲榮譽',
+    add: '添加'
   }
 }
