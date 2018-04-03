@@ -14,5 +14,15 @@ module.exports = {
     about_us: '关于我们',
     terms: '使用条款',
     privite_policy: '私人政策'
+  },
+  profile: {
+    introduce: '我的简介',
+    experience: '工作经验',
+    skill: '技能',
+    service: "服务范围",
+    works: "作品集",
+    link_acount:"已连接的社交账号",
+    join_team:"已加入的团队",
+    my_honour:"已获荣誉",
   }
 }

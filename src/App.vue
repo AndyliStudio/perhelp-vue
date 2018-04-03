@@ -20,6 +20,9 @@ export default {
     Header,
     Footer
   },
+  beforeCreate (){
+    this.$store.state.app.hasLogined = true;
+  },
   computed: {
     isLogined () {
       return this.$store.state.app.hasLogined
@@ -54,14 +57,14 @@ html, body {
   min-width: 1032px;
   min-height: 100%;
   overflow: hidden;
-  padding-top: 90px;
+  padding-top: 75px;
   padding-bottom: 60px;
   box-sizing: border-box;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 .app-content {
-  width: 1100px;
-  padding: 0 16px;
+  /* width: 1100px; */
+  /* padding: 0 16px; */
   margin: 0 auto;
 }
 </style>
