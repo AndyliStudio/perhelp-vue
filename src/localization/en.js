@@ -14,5 +14,10 @@ module.exports = {
     about_us: 'About Us',
     terms: 'Terms of use',
     privite_policy: 'Private policy'
+  },
+  ManagementHome: {
+    Participates_task: 'The task of participation',
+    send_task: 'send task',
+    contract: 'contract'
   }
 }

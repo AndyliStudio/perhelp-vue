@@ -14,5 +14,10 @@ module.exports = {
     about_us: '關於我們',
     terms: '使用條款',
     privite_policy: '私人政策'
+  },
+  ManagementHome: {
+    Participates_task: '參與的任務',
+    send_task: '發出的任務',
+    contract: '合約'
   }
 }
