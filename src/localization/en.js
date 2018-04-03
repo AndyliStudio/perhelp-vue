@@ -20,9 +20,10 @@ module.exports = {
     experience: 'Experience',
     skill: 'Skill',
     service: 'Service',
-    works: 'works',
+    works: 'Works',
     link_acount: 'Linked acount',
     join_team: 'Joined team',
-    my_honour: 'Honours'
+    my_honour: 'Honours',
+    add: 'Add'
   }
 }

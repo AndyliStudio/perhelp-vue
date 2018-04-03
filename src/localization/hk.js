@@ -23,6 +23,7 @@ module.exports = {
     works: '作品集',
     link_acount: '已連接的社交賬號',
     join_team: '已加入的團隊',
-    my_honour: '已獲榮譽'
+    my_honour: '已獲榮譽',
+    add: '添加'
   }
 }
