@@ -1,6 +1,5 @@
 <template>
   <div class="Mangement-home">
-
     <ul>
       <li>
         <!-- 标题 -->
@@ -122,6 +121,10 @@ export default {
 </script>
 
 <style scoped>
+  *{
+    margin: 0;
+    padding: 0;
+  }
   .Mangement-home{
     background-color: white;
     padding-bottom: 150px;
