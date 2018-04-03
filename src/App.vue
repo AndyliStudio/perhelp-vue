@@ -20,8 +20,8 @@ export default {
     Header,
     Footer
   },
-  beforeCreate (){
-    this.$store.state.app.hasLogined = true;
+  beforeCreate () {
+    this.$store.state.app.hasLogined = true
   },
   computed: {
     isLogined () {

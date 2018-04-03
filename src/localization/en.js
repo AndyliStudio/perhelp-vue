@@ -19,10 +19,10 @@ module.exports = {
     introduce: 'Introduce',
     experience: 'Experience',
     skill: 'Skill',
-    service: "Service",
-    works: "works",
-    link_acount:"Linked acount",
-    join_team:"Joined team",
-    my_honour:"Honours",
+    service: 'Service',
+    works: 'works',
+    link_acount: 'Linked acount',
+    join_team: 'Joined team',
+    my_honour: 'Honours'
   }
 }
