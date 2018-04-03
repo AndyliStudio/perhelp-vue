@@ -57,7 +57,7 @@ html, body {
   min-width: 1032px;
   min-height: 100%;
   overflow: hidden;
-  padding-top: 75px;
+  padding-top: 87px;
   padding-bottom: 60px;
   box-sizing: border-box;
   -webkit-font-smoothing: subpixel-antialiased;

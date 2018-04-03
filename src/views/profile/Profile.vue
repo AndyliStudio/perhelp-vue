@@ -12,12 +12,15 @@
                 <div class='info-item'>{{userInfo.time}}</div>
             </div>
         </div>
+
       </div>
     </div>
     <div class="pf-page">
       <div class="content-inner-s">
+          <div class="profile-complate">{{profilePercent}}</div>
           <section>
             <h3 class="title-orange">{{ $t("profile.introduce") }}</h3>
+            <p class='intro-content'>{{userInfo.introduce}}</p>
           </section>
           <section>
             <h3 class="title-blue">{{ $t("profile.experience") }}</h3>
@@ -56,8 +59,14 @@ export default {
         name:"Nick Lee",
         addr:"Hong Kong TaiPo NT",
         tel:"852 608 - XXXX",
-        time:"1-2小时/周"
+        time:"1-2小时/周",
+        introduce:"这项调查是美国一家在线人力资源服务机构 Paychex 主导展开的，分析人员仔细查看了知名招聘网站 Indeed.com 上超过 40 万份自由职业者的简历。结果显示，从 1970 年到上世纪 90 年代，“自由职业者”还是一个陌生的概念，可是在 2000 年 - 2014 年间，美国的自由职业经济增长就变得刹不住车了——在这 10 年间，它增长了 500% 还要多。"
       }
+    }
+  },
+  computed: {
+    profilePercent () {
+      return "Finised 80%";
     }
   },
   methods: {
@@ -95,9 +104,37 @@ export default {
     color: rgb(18,148,95)
   }
 
+  .intro-content{
+    line-height: 40px;
+  }
+
+  .pf-page{
+    .profile-complate{
+        width: 254px;
+        height: 43px;
+        background: linear-gradient(left, rgb(247,112,226), rgb(254,148,164));
+        border-radius: 22px;
+        line-height: 43px;
+        font-size: 16px;
+        color: #ffffff;
+        padding:0 32px;
+        font-weight: bold;
+        position: relative;
+        left: -115px;
+        top:-22px;
+    }
+
+    section{
+      margin-top:30px;
+    }
+  }
+
+
+  
+
   .pf-banner{
     background:#f9f9f9;
-    height:270px;
+    height:278px;
 
     .avatar{
       margin:36px 0px 36px 230px;
@@ -126,7 +163,7 @@ export default {
     }
 
     .info-grid { 
-      height: 200px;
+      height: 100px;
 
       .info-name{
         font-weight: bold;
