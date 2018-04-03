@@ -14,5 +14,15 @@ module.exports = {
     about_us: 'About Us',
     terms: 'Terms of use',
     privite_policy: 'Private policy'
+  },
+  profile: {
+    introduce: 'Introduce',
+    experience: 'Experience',
+    skill: 'Skill',
+    service: "Service",
+    works: "works",
+    link_acount:"Linked acount",
+    join_team:"Joined team",
+    my_honour:"Honours",
   }
 }
