@@ -49,19 +49,48 @@
           <section>
             <h3 class="title-green-d">{{ $t("profile.service") }}</h3>
             <button class="section-editor"><icon name="pencil"></icon>{{ $t("profile.add") }}</button>
+            <div class="service-list">
+              <div class="service-item" v-for="service in servicelist" :key="service.id">
+                  {{service.name}}
+              </div>
+            </div>
           </section>
           <section>
             <h3 class="title-black">{{ $t("profile.works") }}</h3>
             <button class="section-editor"><icon name="pencil"></icon>{{ $t("profile.add") }}</button>
+            <div class="work-list">
+              <div class="work-item" v-for="work in worklist" :key="work.id">
+                <div class="work-item-bg"></div>
+                <div class="work-title">{{work.title}}</div>
+              </div>
+            </div>
           </section>
           <section>
             <h3 class="title-black">{{ $t("profile.link_acount") }}</h3>
+            <ul class="acount-list">
+              <li><icon class="color-f" name="facebook-square"></icon></li>
+              <li><icon class="color-g" name="google-plus-square"></icon></li>
+              <li><icon class="color-t" name="twitter-square"></icon></li>
+              <li><icon class="color-l" name="linkedin-square"></icon></li>
+            </ul>
           </section>
           <section>
             <h3 class="title-black">{{ $t("profile.join_team") }}</h3>
+            <div class="team-list">
+              <div class="team-item"  v-for="team in teamlist" :key="team.id">
+                <icon name="coffee"></icon><br>
+                <p>{{team.name}}</p>
+              </div>
+            </div>
           </section>
           <section>
             <h3 class="title-black">{{ $t("profile.my_honour") }}</h3>
+            <div class="team-list">
+              <div class="team-item"  v-for="honour in honourlist" :key="honour.id">
+                <icon name="coffee"></icon><br>
+                <p>{{honour.name}}</p>
+              </div>
+            </div>
           </section>
       </div>
     </div>
@@ -118,6 +147,40 @@ export default {
           title: 'Adobe Photoshop',
           time: '8 months'
         }
+      ],
+      servicelist: [
+        {
+          name: '网页界面设计'
+        }, {
+          name: '应用程序界面设计'
+        }
+      ],
+      worklist: [
+        {
+          title: '网页界面设计'
+        }, {
+          title: '应用程序设计'
+        }, {
+          title: '网页界面设计'
+        }, {
+          title: '应用程序设计'
+        }, {
+          title: '网页界面设计'
+        }
+      ],
+      teamlist: [
+        {
+          name: 'ABC Studio'
+        }, {
+          name: 'DEF Studio'
+        }
+      ],
+      honourlist: [
+        {
+          name: 'Lv1 hunter'
+        }, {
+          name: 'Lv5 Freeelance'
+        }
       ]
     }
   },
@@ -133,6 +196,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.profile{
+  margin-bottom: 50px;
+}
 .content-inner {
   width: 1100px;
   margin: 0 auto;
@@ -226,9 +293,101 @@ export default {
     }
   }
 
+  .service-list{
+    padding: 12px 0;
+    .service-item{
+      background: rgb(24,120,167);
+      font-size: 14px;
+      font-weight: bold;
+      color: #ffffff;
+      display: inline-block;
+      margin-right: 56px;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 40px;
+      border-radius: 20px;
+    }
+  }
+
+  .work-list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .work-item{
+      flex-basis:14%;
+      display: inline-block;
+
+      .work-item-bg{
+        background: #f0f0f0;
+        border-radius: 6px;
+        height: 160px;
+        margin-top: 30px;
+      }
+
+      .work-title{
+        font-size: 13px;
+        text-align: center;
+        padding: 10px;
+      }
+    }
+  }
+
+  .acount-list{
+    height: 60px;
+    margin-top: 20px;
+    li{
+      float: left;
+
+      .fa-icon{
+        width: 50px;
+        height: 50px;
+        margin-right: 50px;
+      }
+
+      .color-f{
+        color: rgb(39,116,215);
+      }
+      .color-g{
+        color: rgb(197,60,60);
+      }
+      .color-t{
+        color: rgb(66,180,227);
+      }
+      .color-l{
+        color: rgb(11,126,163);
+      }
+    }
+  }
+
+  .team-list{
+    height: 150px;
+    .team-item{
+      float: left;
+      text-align:center;
+      margin-right: 60px;
+      .fa-icon{
+        width: 120px;
+        height: 120px;
+        color: #b0b0b0;
+      }
+      p{
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+  }
+
   section {
-    margin-top: 30px;
+    margin-top: 50px;
     position: relative;
+
+    h3{
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
 
     .section-editor{
       position: absolute;
@@ -240,6 +399,7 @@ export default {
       border: none;
       box-shadow: 1px 1px 5px #999 inset;
       background: rgb(235, 235,196);
+      outline:none;
       cursor: pointer;
 
       .fa-icon{
