@@ -38,6 +38,8 @@ export default {
 
 <style lang="scss" scoped>
 .landscape {
+  max-width: 1100px;
+  margin: 0 auto;
   .landscape-inner {
     display: -webkit-box;
     display: -ms-flexbox;

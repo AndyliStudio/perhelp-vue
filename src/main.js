@@ -18,8 +18,10 @@ import VueApollo from 'vue-apollo'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 import VueI18n from 'vue-i18n'
-// normalize styles
+// normalize css
 import './assets/styles/normalize.css'
+// reset css
+import './assets/styles/reset.css'
 
 Vue.config.productionTip = false
 // Enable devtools
