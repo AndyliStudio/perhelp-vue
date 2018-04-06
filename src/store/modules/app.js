@@ -21,7 +21,7 @@ const mutations = {
   doLogin (state, data) {
     setCookie('perhelp_token', data.token)
     state.token = data.token
-    state.hasLogined = false
+    state.hasLogined = true
   },
   doLogout () {
     deleteCookie('perhelp_token')

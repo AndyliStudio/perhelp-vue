@@ -29,6 +29,8 @@ export default {
         { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'EEE', job: 'Graphic Designer', checked: true },
         { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'FFF', job: 'FrontEnd Engineer', checked: true },
         { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'GGG', job: 'Graphic Designer', checked: true },
+        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'HHH', job: 'FrontEnd Engineer', checked: true },
+        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'HHH', job: 'FrontEnd Engineer', checked: true },
         { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'HHH', job: 'FrontEnd Engineer', checked: true }
       ]
     }

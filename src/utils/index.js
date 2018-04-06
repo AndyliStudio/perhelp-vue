@@ -177,7 +177,7 @@ export function getCookie (name) {
  * @param domain cookie域名
  */
 export function deleteCookie (name, path, domain) {
-  if (this.getCookie(name)) {
+  if (getCookie(name)) {
     document.cookie = name + '=' +
       ((path) ? '; path=' + path : '') +
       ((domain) ? '; domain=' + domain : '') +
