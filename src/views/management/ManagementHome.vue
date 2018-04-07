@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import subBox from './subBox'
+import subBox from '../../components/management/subBox.vue'
 
 export default {
   data () {
@@ -121,14 +121,17 @@ export default {
 </script>
 
 <style scoped>
-  *{
-    margin: 0;
-    padding: 0;
-  }
   .Mangement-home{
+    width: 1100px;
+    margin: 0 auto;
     background-color: white;
     padding-bottom: 150px;
+    /* padding-left: 50px; */
     box-sizing: border-box;
+  }
+  .Mangement-home>ul{
+    padding: 0;
+    margin: 0;
   }
   .Mangement-home li{
     list-style-type: none;
@@ -166,9 +169,9 @@ export default {
     align-items: center;
   }
   .more{
-    margin-left: 20px;
-    width: 24px;
-    text-align: center;
+    margin-left: -16px;
+    /* width: 24px; */
+    text-align: left;
     line-height: 24px;
     cursor: pointer;
   }
