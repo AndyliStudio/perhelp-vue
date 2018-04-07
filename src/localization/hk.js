@@ -18,6 +18,11 @@ module.exports = {
   landscape: {
     loadMore: '加載更多'
   },
+  login: {
+    facebook: '以Facebook賬戶身份登入',
+    google: '以Google賬戶身份登入',
+    other: '或者使用其他郵箱登入'
+  },
   ManagementHome: {
     Participates_task: '參與的任務',
     send_task: '發出的任務',

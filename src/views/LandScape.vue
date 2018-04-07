@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="load-more" @click="loadMore">
+    <div class="load-more" @click="loadMore" v-if="allWorkers.length > 0 && hasMore">
       <icon name="angle-double-down" scale="3.5"></icon>
       <br />
       <span>{{ $t("landscape.loadMore") }}</span>
@@ -42,6 +42,7 @@ export default {
   data () {
     return {
       loading: false,
+      hasMore: true,
       allWorkers: []
     }
   },
@@ -56,7 +57,6 @@ export default {
     loadMore () {
       // Fetch more data and transform the original result
       let lastWorkerId = this.allWorkers[this.allWorkers.length - 1].id
-      console.log(lastWorkerId)
       this.$apollo.queries.allWorkers.fetchMore({
         query: gql`
           query allWorkers {
@@ -70,12 +70,10 @@ export default {
         `,
         // Transform the previous result with new data
         updateQuery: (previousResult, { fetchMoreResult }) => {
-          console.log(previousResult, fetchMoreResult)
           const newWorkers = fetchMoreResult.allWorkers
-          const hasMore = fetchMoreResult.allWorkers.length > 0
-          if (hasMore) {
+          this.hasMore = fetchMoreResult.allWorkers.length > 0
+          if (this.hasMore) {
             this.allWorkers = this.allWorkers.concat(newWorkers)
-            console.log(this.allWorkers, newWorkers)
           } else {
             this.$modal.show('dialog', {
               title: '温馨提示',

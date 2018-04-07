@@ -18,6 +18,11 @@ module.exports = {
   landscape: {
     loadMore: 'load more'
   },
+  login: {
+    facebook: 'login width Facebook',
+    google: 'login width Google',
+    other: 'or login width email'
+  },
   ManagementHome: {
     Participates_task: 'The task of participation',
     send_task: 'send task',

@@ -27,6 +27,7 @@ import VueJsModal from 'vue-js-modal'
 import './assets/styles/normalize.css'
 // reset css
 import './assets/styles/reset.css'
+import './assets/styles/common.css'
 
 Vue.config.productionTip = false
 // Enable devtools

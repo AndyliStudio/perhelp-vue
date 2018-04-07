@@ -43,7 +43,7 @@ export default {
   methods: {
     // open the login dialog
     openLogin () {
-
+      this.$modal.show('login')
     },
     // open the registe dialog
     openRegiste () {
