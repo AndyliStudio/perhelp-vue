@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import HelloWorld from '@/views/hello-world/HelloWorld'
 import LandScape from '@/views/LandScape'
 import ManagementHome from '@/views/ManagementHome'
-import Profile from '@/views/profile/Profile'
+import Profile from '@/views/freelancer/Profile'
+import Freelancer from '@/views/freelancer/Freelancer'
 
 Vue.use(Router)
 
@@ -27,5 +28,10 @@ export default new Router({
     path: '/profile',
     name: 'profile',
     component: Profile
+  },
+  {
+    path: '/freelancer',
+    name: 'freelancer',
+    component: Freelancer
   }]
 })
