@@ -3,7 +3,9 @@
     <div class="landscape-inner">
       <div class="landscape-card" v-for="(item, index) in allWorkers" v-bind:key="index">
         <div class="card-inner">
-          <img :src="item.avatar" alt="" />
+          <div class="img-container">
+            <img v-view="item.avatar" :alt="item.name" />
+          </div>
           <div class="card-des">
             <div class="card-des-inner">
               <p class="card-name">{{ item.name }}</p>
@@ -83,9 +85,19 @@ export default {
         overflow: hidden;
         background: #f1f2f4;
       }
+      .img-container {
+        width: 100%;
+        height: 230px;
+        background: #cccccc;
+        overflow: hidden;
+        & > img {
+          width: 100%;
+          height: 100%;
+        }
+      }
       .card-des {
         display: table;
-        padding-left: 20px;
+        padding-left: 15px;
         width: 100%;
         height: 60px;
         box-sizing: border-box;
@@ -100,7 +112,6 @@ export default {
         margin: 0;
         padding: 0;
         text-align: left;
-        padding-left: 10px;
       }
     }
   }

@@ -5,6 +5,7 @@ import axios from 'axios'
 import App from './App'
 import router from './router'
 import store from './store'
+import other from './utils/other'
 import VueProgressBar from 'vue-progressbar'
 import { sync } from 'vuex-router-sync'
 // This is everything we need to work with Apollo 2.0.
@@ -74,7 +75,15 @@ router.afterEach(() => {
 })
 
 Vue.component('icon', Icon)
-Vue.use(VueViewload)
+Vue.use(VueViewload, {
+  defaultPic: other.lazyLoadBase64,
+  errorPic: other.loadFailBase64,
+  threshold: -200,
+  effectFadeIn: true,
+  callback: function (ele, src) {
+    console.log('img load finish：' + ele.nodeName + '...' + src)
+  }
+})
 // Language globalization
 Vue.use(VueI18n)
 const i18n = new VueI18n({
