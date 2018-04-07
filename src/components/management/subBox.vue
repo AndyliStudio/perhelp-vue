@@ -55,8 +55,9 @@ export default {
     border-radius: 1px;
     height: 320px;
     position: relative;
+    margin-right: 41px;
   }
-  .boxs:nth-child(1){
+  /* .boxs:nth-child(1){
     margin-right: 41px;
   }
   .boxs:nth-child(2){
@@ -64,7 +65,7 @@ export default {
   }
   .boxs:nth-child(3){
     margin-right: 24px;
-  }
+  } */
   .box-top{
     padding: 30px 30px 0 30px;
     box-sizing: border-box;
