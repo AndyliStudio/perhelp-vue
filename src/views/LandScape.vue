@@ -1,9 +1,9 @@
 <template>
   <div class="landscape">
     <div class="landscape-inner">
-      <div class="landscape-card" v-for="(item, index) in peoples" v-bind:key="index">
+      <div class="landscape-card" v-for="(item, index) in allWorkers" v-bind:key="index">
         <div class="card-inner">
-          <img :src="item.img" alt="" />
+          <img :src="item.avatar" alt="" />
           <div class="card-des">
             <div class="card-des-inner">
               <p class="card-name">{{ item.name }}</p>
@@ -13,26 +13,49 @@
         </div>
       </div>
     </div>
-    <div class="load-more"></div>
+    <div class="load-more" @click="loadMore">
+      <icon name="angle-double-down" scale="3.5"></icon>
+      <br />
+      <span>{{ $t("landscape.loadMore") }}</span>
+    </div>
   </div>
 </template>
 
 <script>
+import gql from 'graphql-tag'
+
+// GraphQL query
+const workerQuery = gql`
+  query allWorkers {
+    allWorkers {
+      id
+      name
+      job
+      avatar
+    }
+  }
+`
+
 export default {
   data () {
     return {
-      peoples: [
-        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'AAA', job: 'Graphic Designer', checked: true },
-        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'BBB', job: 'FrontEnd Engineer', checked: true },
-        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'CCC', job: 'Graphic Designer', checked: true },
-        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'DDD', job: 'FrontEnd Engineer', checked: true },
-        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'EEE', job: 'Graphic Designer', checked: true },
-        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'FFF', job: 'FrontEnd Engineer', checked: true },
-        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'GGG', job: 'Graphic Designer', checked: true },
-        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'HHH', job: 'FrontEnd Engineer', checked: true },
-        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'HHH', job: 'FrontEnd Engineer', checked: true },
-        { img: 'https://dummyimage.com/220x230/50B347/FFF&text=Mock.js', name: 'HHH', job: 'FrontEnd Engineer', checked: true }
-      ]
+      loading: false,
+      allWorkers: []
+    }
+  },
+  // Apollo GraphQL
+  apollo: {
+    allWorkers: {
+      query: workerQuery,
+      loadingKey: 'loading'
+    }
+  },
+  methods: {
+    getData () {
+
+    },
+    loadMore () {
+
     }
   }
 }
@@ -53,6 +76,7 @@ export default {
       flex: 0 0 25%;
       text-align: center;
       margin-top: 30px;
+      cursor: pointer;
       .card-inner {
         display: inline-block;
         border-radius: 6px;
@@ -78,6 +102,16 @@ export default {
         text-align: left;
         padding-left: 10px;
       }
+    }
+  }
+  .load-more {
+    color: #ffffff;
+    text-align: center;
+    width: 100px;
+    margin: 40px auto;
+    cursor: pointer;
+    .fa-icon {
+      color: #72f0ff;
     }
   }
 }

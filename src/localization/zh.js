@@ -15,6 +15,9 @@ module.exports = {
     terms: '使用条款',
     privite_policy: '私人政策'
   },
+  landscape: {
+    loadMore: '加载更多'
+  },
   ManagementHome: {
     Participates_task: '参与的任务',
     send_task: '发出的任务',

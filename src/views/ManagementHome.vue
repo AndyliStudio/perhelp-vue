@@ -106,7 +106,7 @@ export default {
   },
   methods: {
     selected (data) {
-      let mesg = data ? '选中' : '未选中'
+      // const mesg = data ? '选中' : '未选中'
     },
     mores (data) {
       // contract 合约  participatesTask 参与任务  sendTask 发出任务
