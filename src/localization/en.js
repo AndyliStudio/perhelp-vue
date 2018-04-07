@@ -15,6 +15,9 @@ module.exports = {
     terms: 'Terms of use',
     privite_policy: 'Private policy'
   },
+  landscape: {
+    loadMore: 'load more'
+  },
   ManagementHome: {
     Participates_task: 'The task of participation',
     send_task: 'send task',

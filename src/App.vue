@@ -1,12 +1,13 @@
 <template>
-  <div id="app" :class="{ 'bg': !isLogined }">
+  <div id="app" ref="app" :class="{ 'bg': !isLogined }">
     <!-- set progressbar -->
     <vue-progress-bar></vue-progress-bar>
-    <Header></Header>
+    <Header :class="{ 'header-bg': headerBg }"></Header>
     <div class="app-container">
       <router-view class="app-content" />
     </div>
     <Footer></Footer>
+    <v-dialog />
   </div>
 </template>
 
@@ -16,17 +17,51 @@ import Footer from './components/basic/Footer.vue'
 
 export default {
   name: 'App',
+  data () {
+    return {
+      headerBg: false
+    }
+  },
   components: {
     Header,
     Footer
-  },
-  beforeCreate () {
-    this.$store.state.app.hasLogined = true
   },
   computed: {
     isLogined () {
       return this.$store.state.app.hasLogined
     }
+  },
+  watch: {
+    // if use has not logined, listen for window scroll event
+    isLogined (newValue, oldValue) {
+      if (!newValue) {
+        this.$refs.app.addEventListener('scroll', this.changeMemu)
+      }
+    }
+  },
+  methods: {
+    changeMemu (event) {
+      // when scroll top value is more than the header height, change header's background
+      if (this.$refs.app.scrollTop > 75) {
+        this.headerBg = true
+      } else {
+        this.headerBg = false
+      }
+    }
+  },
+  created () {
+    let self = this
+    if (!self.isLogined) {
+      self.$nextTick(() => {
+        self.$refs.app.addEventListener('scroll', self.changeMemu)
+      })
+    } else {
+      self.headerBg = false
+    }
+    this.$modal.show('dialog', {
+      title: 'Information',
+      text: 'Check out, I have a title 😎'
+    })
   }
 }
 </script>
@@ -66,5 +101,8 @@ html, body {
   /* width: 1100px; */
   /* padding: 0 16px; */
   margin: 0 auto;
+}
+.header-bg {
+  background: #ffffff !important;
 }
 </style>

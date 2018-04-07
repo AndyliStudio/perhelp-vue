@@ -5,6 +5,7 @@ import axios from 'axios'
 import App from './App'
 import router from './router'
 import store from './store'
+import other from './utils/other'
 import VueProgressBar from 'vue-progressbar'
 import { sync } from 'vuex-router-sync'
 // This is everything we need to work with Apollo 2.0.
@@ -18,8 +19,14 @@ import VueApollo from 'vue-apollo'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 import VueI18n from 'vue-i18n'
-// normalize styles
+// img lazy-load derective
+import VueViewload from 'vue-viewload'
+// modal component
+import VueJsModal from 'vue-js-modal'
+// normalize css
 import './assets/styles/normalize.css'
+// reset css
+import './assets/styles/reset.css'
 
 Vue.config.productionTip = false
 // Enable devtools
@@ -39,7 +46,7 @@ Vue.use(VueApollo)
 // Create a new HttpLink to connect to your GraphQL API.
 // According to the Apollo docs, this should be an absolute URI.
 const httpLink = new HttpLink({
-  uri: `https://api.graph.cool/simple/v1/cjffdxg0g26sc0100jiil19mb`
+  uri: `https://api.graph.cool/simple/v1/cjfnntn753h4l01465ofmyxq9`
   // uri: `http://localhost:3000/graphql`
 })
 // creat another variable here just because it makes it easier to add more links in the future.
@@ -70,6 +77,19 @@ router.afterEach(() => {
 })
 
 Vue.component('icon', Icon)
+Vue.use(VueViewload, {
+  defaultPic: other.lazyLoadBase64,
+  errorPic: other.loadFailBase64,
+  threshold: -200,
+  effectFadeIn: true,
+  callback: function (ele, src) {
+    console.log('img load finish：' + ele.nodeName + '...' + src)
+  }
+})
+Vue.use(VueJsModal, {
+  dialog: true,
+  dynamic: true
+})
 // Language globalization
 Vue.use(VueI18n)
 const i18n = new VueI18n({
