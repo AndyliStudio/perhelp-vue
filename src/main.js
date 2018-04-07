@@ -18,6 +18,8 @@ import VueApollo from 'vue-apollo'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 import VueI18n from 'vue-i18n'
+// img lazy-load derective
+import VueViewload from 'vue-viewload'
 // normalize css
 import './assets/styles/normalize.css'
 // reset css
@@ -72,6 +74,7 @@ router.afterEach(() => {
 })
 
 Vue.component('icon', Icon)
+Vue.use(VueViewload)
 // Language globalization
 Vue.use(VueI18n)
 const i18n = new VueI18n({
