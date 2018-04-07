@@ -7,6 +7,7 @@
       <router-view class="app-content" />
     </div>
     <Footer></Footer>
+    <v-dialog />
   </div>
 </template>
 
@@ -57,6 +58,10 @@ export default {
     } else {
       self.headerBg = false
     }
+    this.$modal.show('dialog', {
+      title: 'Information',
+      text: 'Check out, I have a title 😎'
+    })
   }
 }
 </script>

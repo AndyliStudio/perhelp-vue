@@ -21,6 +21,8 @@ import Icon from 'vue-awesome/components/Icon'
 import VueI18n from 'vue-i18n'
 // img lazy-load derective
 import VueViewload from 'vue-viewload'
+// modal component
+import VueJsModal from 'vue-js-modal'
 // normalize css
 import './assets/styles/normalize.css'
 // reset css
@@ -83,6 +85,10 @@ Vue.use(VueViewload, {
   callback: function (ele, src) {
     console.log('img load finish：' + ele.nodeName + '...' + src)
   }
+})
+Vue.use(VueJsModal, {
+  dialog: true,
+  dynamic: true
 })
 // Language globalization
 Vue.use(VueI18n)
