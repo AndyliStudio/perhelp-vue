@@ -23,6 +23,14 @@ module.exports = {
     google: 'login width Google',
     other: 'or login width email'
   },
+  loginWidthEmail: {
+    pleaseLogin: 'Please login',
+    emailPlaceHolder: 'email address',
+    passwordPlaceHolder: 'password',
+    forgotPassword: 'If forgot password, please click here.',
+    loginText: 'User Login',
+    otherLogin: 'Login width Facebook or Google'
+  },
   ManagementHome: {
     Participates_task: 'The task of participation',
     send_task: 'send task',

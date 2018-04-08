@@ -23,6 +23,14 @@ module.exports = {
     google: '以Google账户身份登录',
     other: '或者使用其他邮箱登录'
   },
+  loginWidthEmail: {
+    pleaseLogin: '请登录',
+    emailPlaceHolder: '电子邮件',
+    passwordPlaceHolder: '密码',
+    forgotPassword: '如忘记密码，请点击这里',
+    loginText: '会员登录',
+    otherLogin: '使用google或facebook登录'
+  },
   ManagementHome: {
     Participates_task: '参与的任务',
     send_task: '发出的任务',
