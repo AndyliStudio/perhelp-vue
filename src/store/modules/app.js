@@ -18,6 +18,9 @@ const actions = {}
 
 // mutations
 const mutations = {
+  setHasLogined (state, data) {
+    state.hasLogined = data
+  },
   doLogin (state, data) {
     setCookie('perhelp_token', data.token)
     state.token = data.token
