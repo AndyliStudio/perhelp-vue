@@ -46,5 +46,14 @@ module.exports = {
     join_team: '已加入的团队',
     my_honour: '已获荣誉',
     add: '添加'
+  },
+  taskInfo: {
+    team: '团队名称',
+    position: '职位名称',
+    task: '任务简介',
+    details: '细节',
+    skill: '技能要求',
+    collection: '收藏此工作',
+    apply: '立即申请'
   }
 }

@@ -46,5 +46,14 @@ module.exports = {
     join_team: 'Joined team',
     my_honour: 'Honours',
     add: 'Add'
+  },
+  taskInfo: {
+    team: 'Team name',
+    position: 'Position name',
+    task: 'Mission Brief',
+    details: 'details',
+    skill: 'Skill requirements',
+    collection: 'Collect this work',
+    apply: 'Immediate application'
   }
 }

@@ -9,7 +9,7 @@
         </div>
         <!-- 列表盒子 -->
         <div class="box-container" >
-          <subBox v-for="(item,index) in sendTask" :key="index" :title="item.title" :label="item.label" :dataSmall="item.data" @myselect="selected" ></subBox>
+          <subBox v-for="(item,index) in sendTask" :key="index" :title="item.title" :label="item.label" @click.native="BoxSelected(item)" :dataSmall="item.data"   @myselect="selected" ></subBox>
           <div v-if="sendTask.length >3" class="more"  @click="mores('sendTask')">
             <icon name="angle-double-right" ></icon>
           </div>
@@ -23,7 +23,7 @@
         </div>
         <!-- 列表盒子 -->
         <div class="box-container" >
-          <subBox v-for="(item,index) in participatesTask" :key="index" :title="item.title" :label="item.label" :dataSmall="item.data" @myselect="selected" ></subBox>
+          <subBox v-for="(item,index) in participatesTask" :key="index" :title="item.title" :label="item.label" @click.native="BoxSelected(item)" :dataSmall="item.data" @myselect="selected" ></subBox>
           <div v-if="participatesTask.length >3" class="more" @click="mores('participatesTask')">
             <icon name="angle-double-right" ></icon>
           </div>
@@ -37,7 +37,7 @@
         </div>
         <!-- 列表盒子 -->
         <div class="box-container" >
-          <subBox v-for="(item,index) in contract" :key="index" :title="item.title" :label="item.label" :dataSmall="item.data" @myselect="selected" ></subBox>
+          <subBox v-for="(item,index) in contract" :key="index" :title="item.title" :label="item.label" @click.native="BoxSelected(item)" :dataSmall="item.data" @myselect="selected" ></subBox>
           <div v-if="contract.length >3" class="more" @click="mores('contract')">
             <icon name="angle-double-right" ></icon>
           </div>
@@ -57,22 +57,50 @@ export default {
         {
           title: '裁衣服广告 ,poster logo， banner 制作-1',
           label: 'ABC 90\'s team',
-          data: ['w', 'w', 'b', 'b', 'c', 'c']
+          data: ['w', 'w', 'b', 'b', 'c', 'c'],
+          team: 'iGrament HingKong Limited 1 哈哈',
+          position: 'Graphic Designer',
+          term: '(short term)',
+          logoUrl: 'http://iph.href.lu/200x200?text=logo&bg=fff',
+          task: 'No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
+          details: ' No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
+          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.']
         },
         {
           title: '裁衣服广告 ,poster logo， banner 制作-2',
           label: 'ABC 90\'s team',
-          data: ['w', 'w', 'b', 'b', 'c', 'c']
+          data: ['w', 'w', 'b', 'b', 'c', 'c'],
+          team: 'iGrament HingKong Limited 2哈哈',
+          position: 'Graphic Designer',
+          term: '(short term)',
+          logoUrl: 'http://iph.href.lu/200x200?text=logo&bg=fff',
+          task: 'No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
+          details: ' No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
+          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.']
         },
         {
           title: '裁衣服广告 ,poster logo， banner 制作-3',
           label: 'ABC 90\'s team',
-          data: ['w', 'w', 'b', 'b', 'c', 'c']
+          data: ['w', 'w', 'b', 'b', 'c', 'c'],
+          team: 'iGrament HingKong Limited 3哈哈',
+          position: 'Graphic Designer',
+          term: '(short term)',
+          logoUrl: 'http://iph.href.lu/200x200?text=logo&bg=fff',
+          task: 'No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
+          details: ' No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
+          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.']
         },
         {
           title: '裁衣服广告 ,poster logo， banner 制作-4',
           label: 'ABC 90\'s team',
-          data: ['w', 'w', 'b', 'b', 'c', 'c']
+          data: ['w', 'w', 'b', 'b', 'c', 'c'],
+          team: 'iGrament HingKong Limited 4哈哈',
+          position: 'Graphic Designer',
+          term: '(short term)',
+          logoUrl: 'http://iph.href.lu/200x200?text=logo&bg=fff',
+          task: 'No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
+          details: ' No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
+          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.']
         }
       ],
       participatesTask: [
@@ -106,10 +134,15 @@ export default {
   },
   methods: {
     selected (data) {
-      // const mesg = data ? '选中' : '未选中'
+      const mesg = data ? '选中' : '未选中'
+      console.log(mesg)
     },
     mores (data) {
       // contract 合约  participatesTask 参与任务  sendTask 发出任务
+    },
+    BoxSelected (item) {
+      console.log(item)
+      this.$modal.show('ManagMent', {item})
     }
   },
   components: {
