@@ -25,7 +25,7 @@ type Post @model {
   imageUrl: String!
 }
 
-# added by auth0 template: (please uncomment)
+# added by email-password template: (please uncomment)
 type User @model {
   # Required system field:
   id: ID! @isUnique # read-only (managed by Graphcool)
@@ -34,8 +34,8 @@ type User @model {
   createdAt: DateTime! # read-only (managed by Graphcool)
   updatedAt: DateTime! # read-only (managed by Graphcool)
 
-  email: String
-  auth0UserId: String @isUnique
+  email: String! @isUnique
+  password: String!
 }
 
 

@@ -20,17 +20,36 @@ types: ./types.graphql
 
 functions:
 
-# added by auth0 template: (please uncomment)
+# added by email-password template: (please uncomment)
+  signup:
+    type: resolver
+    schema: src/email-password/signup.graphql
+    handler:
+      code: src/email-password/signup.ts
 
   authenticate:
-    handler:
-      code:
-        src: ./src/auth0/auth0Authentication.js
-        environment:
-          AUTH0_DOMAIN: ${env:AUTH0_DOMAIN}
-          AUTH0_API_IDENTIFIER: ${env:AUTH0_API_IDENTIFIER}
     type: resolver
-    schema: ./src/auth0/auth0Authentication.graphql
+    schema: src/email-password/authenticate.graphql
+    handler:
+      code: src/email-password/authenticate.ts
+
+  loggedInUser:
+    type: resolver
+    schema: src/email-password/loggedInUser.graphql
+    handler:
+      code: src/email-password/loggedInUser.ts
+
+
+# added by auth0 template: (please uncomment)
+  # authenticate:
+  #   handler:
+  #     code:
+  #       src: ./src/auth0/auth0Authentication.js
+  #       environment:
+  #         AUTH0_DOMAIN: ${env:AUTH0_DOMAIN}
+  #         AUTH0_API_IDENTIFIER: ${env:AUTH0_API_IDENTIFIER}
+  #   type: resolver
+  #   schema: ./src/auth0/auth0Authentication.graphql
 
   hello:
     handler:
