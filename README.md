@@ -2,6 +2,13 @@
 
 > 自由工作者平台
 
+### [Icon 库](http://fontawesome.com/icons/)
+
+### [图片占位符-在线生成图片](https://tool.lu/imageholder/)
+
+
+
+
 ## 启动
 
 ``` bash

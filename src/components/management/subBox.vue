@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="box-bottom">
-      <div class="checkBox" @click="select()">
+      <div class="checkBox" @click="select">
         <icon v-show="flag" name="check" ></icon>
       </div>
       <span>{{label}}</span>
@@ -35,7 +35,8 @@ export default {
 
   },
   methods: {
-    select () {
+    select (e) {
+      e.cancelBubble = true
       if (!this.flag) {
         this.flag = true
       } else {

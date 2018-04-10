@@ -28,6 +28,7 @@ import './assets/styles/normalize.css'
 // reset css
 import './assets/styles/reset.css'
 import './assets/styles/common.css'
+// import './assets/styles/globaScss.scss'
 
 Vue.config.productionTip = false
 // Enable devtools
