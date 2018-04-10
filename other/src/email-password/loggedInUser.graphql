@@ -1,5 +1,7 @@
 type LoggedInUserPayload {
   id: ID!
+  username: String!
+  email: String!
 }
 
 extend type Query {

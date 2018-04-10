@@ -3,7 +3,7 @@ import { setCookie, deleteCookie } from '../../utils'
 // initial state
 const state = {
   title: '', // page title
-  hasLogined: true, // params judge user is logined
+  hasLogined: false, // params judge user is logined
   token: '',
   userInfo: {}
 }

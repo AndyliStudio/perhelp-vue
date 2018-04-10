@@ -17,7 +17,7 @@
         <p class="forgot-password"><span>{{ $t('loginWidthEmail.forgotPassword') }}</span></p>
         <button class="login-btn">{{ $t('loginWidthEmail.loginText') }}</button>
       </div>
-      <div class="other-login"><span @click="openLogin">{{ $t('loginWidthEmail.otherLogin') }}</span></div>
+      <div class="other-login"><span @click="openLogin">{{ $t('loginWidthEmail.registe') }}</span></div>
     </div>
   </modal>
 </template>
@@ -35,7 +35,7 @@ export default {
   methods: {
     openLogin () {
       this.$modal.hide('login-with-email')
-      this.$modal.show('login')
+      this.$modal.show('registe')
     }
   }
 }

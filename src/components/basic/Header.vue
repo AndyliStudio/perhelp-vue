@@ -47,7 +47,7 @@ export default {
     },
     // open the registe dialog
     openRegiste () {
-
+      this.$modal.show('registe')
     }
   }
 }

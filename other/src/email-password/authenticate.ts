@@ -4,6 +4,7 @@ import * as bcrypt from 'bcryptjs'
 
 interface User {
   id: string
+  username: string
   password: string
 }
 
@@ -41,7 +42,7 @@ export default async (event: FunctionEvent<EventData>) => {
     // generate node token for existing User node
     const token = await graphcool.generateNodeToken(user.id, 'User')
 
-    return { data: { id: user.id, token} }
+    return { data: { id: user.id, username: user.username, token} }
   } catch (e) {
     console.log(e)
     return { error: 'An unexpected error occured during authentication.' }
@@ -53,6 +54,7 @@ async function getUserByEmail(api: GraphQLClient, email: string): Promise<{ User
     query getUserByEmail($email: String!) {
       User(email: $email) {
         id
+        username
         password
       }
     }
