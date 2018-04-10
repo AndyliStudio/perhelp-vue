@@ -2,13 +2,6 @@
 
 > 自由工作者平台
 
-### [Icon 库](http://fontawesome.com/icons/)
-
-### [图片占位符-在线生成图片](https://tool.lu/imageholder/)
-
-
-
-
 ## 启动
 
 ``` bash
@@ -41,4 +34,24 @@ mutation {
     token
   }
 }
+```
+
+> 开发使用的 资源
+
+### [Icon 库](https://fontawesome.com/icons)
+
+### [图片占位符-在线生成图片](https://tool.lu/imageholder/)
+
+> vue-js-modal
+
+```
+
+模态弹窗
+
+<modal classes="mangment v--modal" :pivotX="1" name="ManagMent" transition="pop-out" width="42%" height="100%" @before-open="beforeOpen" >
+
+pivotx : 0-左 0.5中 1 右 【表示 窗口出现的位置】
+
+@before-open : 打开前的生命周期事件，用于传参 ，参数被保存在 e.params 中。
+
 ```
