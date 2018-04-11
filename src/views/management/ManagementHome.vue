@@ -64,7 +64,8 @@ export default {
           logoUrl: 'http://iph.href.lu/200x200?text=logo&bg=fff',
           task: 'No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
           details: ' No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
-          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.']
+          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.'],
+          logoImgs: ['http://iph.href.lu/370x370?text=logo&bg=b9b9b9', 'http://iph.href.lu/370x370?text=logo&bg=3e3e3e']
         },
         {
           title: '裁衣服广告 ,poster logo， banner 制作-2',
@@ -76,7 +77,8 @@ export default {
           logoUrl: 'http://iph.href.lu/200x200?text=logo&bg=fff',
           task: 'No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
           details: ' No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
-          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.']
+          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.'],
+          logoImgs: ['http://iph.href.lu/370x370?text=logo&bg=b9b9b9', 'http://iph.href.lu/370x370?text=logo&bg=3e3e3e']
         },
         {
           title: '裁衣服广告 ,poster logo， banner 制作-3',
@@ -88,7 +90,8 @@ export default {
           logoUrl: 'http://iph.href.lu/200x200?text=logo&bg=fff',
           task: 'No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
           details: ' No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
-          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.']
+          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.'],
+          logoImgs: ['http://iph.href.lu/370x370?text=logo&bg=b9b9b9', 'http://iph.href.lu/370x370?text=logo&bg=3e3e3e']
         },
         {
           title: '裁衣服广告 ,poster logo， banner 制作-4',
@@ -100,7 +103,8 @@ export default {
           logoUrl: 'http://iph.href.lu/200x200?text=logo&bg=fff',
           task: 'No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
           details: ' No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, you cannot disappear from my world.No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.',
-          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.']
+          skills: ['No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.', 'No matter the ending is perfect or not, youcannot disappear from my world.No matter the ending is perfect or not, you cannot disappear frommy world.'],
+          logoImgs: ['http://iph.href.lu/370x370?text=logo&bg=b9b9b9', 'http://iph.href.lu/370x370?text=logo&bg=3e3e3e']
         }
       ],
       participatesTask: [
@@ -142,7 +146,8 @@ export default {
     },
     BoxSelected (item) {
       console.log(item)
-      this.$modal.show('ManagMent', {item})
+      // this.$modal.show('ManagMent', {item})
+      this.$modal.show('PopupReference', {item})
     }
   },
   components: {

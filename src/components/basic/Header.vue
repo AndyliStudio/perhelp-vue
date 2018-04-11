@@ -54,14 +54,13 @@ export default {
       this.$modal.show('login')
     },
     // open the registe dialog
-    openRegiste () {
-
-    },
+    openRegiste () {},
     login,
     logout
   },
   created () {
     this.$store.commit('setHasLogined', this.authenticated)
+    this.$modal.show('registe')
   }
 }
 </script>

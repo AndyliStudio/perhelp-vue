@@ -29,7 +29,25 @@ module.exports = {
     passwordPlaceHolder: 'password',
     forgotPassword: 'If forgot password, please click here.',
     loginText: 'User Login',
-    otherLogin: 'Login width Facebook or Google'
+    registe: 'No account, registe now!',
+    emailNoValidate: 'Please input the correct email.',
+    passwordNotSame: 'Please confirm that you enter the same password twice.',
+    passwordNoValidate: 'Please confirm passwords that are greater than 6 digits and contain at least numbers, uppercase letters, and lowercase letters'
+  },
+  registe: {
+    pleaseRegiste: 'Please create your account',
+    emailPlaceHolder: 'email address',
+    usernamePlaceHolder: 'username',
+    passwordPlaceHolder: 'password',
+    rePasswordPlaceHolder: 'confirm password',
+    registeText: 'Registe now',
+    hasAccount: 'Have account, login now!',
+    gotoLogin: 'Go to login',
+    emailNoValidate: 'Please input the correct email.',
+    emailHasBeenUsed: 'The email address has been registed, please login.',
+    usernameNoValidate: 'Please enter 4-18 usernames',
+    passwordNotSame: 'Please confirm that you enter the same password twice.',
+    passwordNoValidate: 'Please confirm passwords that are greater than 6 digits and contain at least numbers, uppercase letters, and lowercase letters'
   },
   ManagementHome: {
     Participates_task: 'The task of participation',
