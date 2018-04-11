@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/views/hello-world/HelloWorld'
 import LandScape from '@/views/LandScape'
-import ManagementHome from '@/views/ManagementHome'
 import Profile from '@/views/freelancer/Profile'
 import Freelancer from '@/views/freelancer/Freelancer'
+import ManagementHome from '@/views/management/ManagementHome'
 
 Vue.use(Router)
 

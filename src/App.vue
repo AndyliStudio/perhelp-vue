@@ -7,12 +7,17 @@
       <router-view class="app-content" />
     </div>
     <Footer></Footer>
+    <!-- dialog -->
+    <v-dialog />
+    <!-- global modal -->
+    <GlobalModal></GlobalModal>
   </div>
 </template>
 
 <script>
 import Header from './components/basic/Header.vue'
 import Footer from './components/basic/Footer.vue'
+import GlobalModal from './components/modal/GlobalModal.vue'
 
 export default {
   name: 'App',
@@ -23,7 +28,8 @@ export default {
   },
   components: {
     Header,
-    Footer
+    Footer,
+    GlobalModal
   },
   computed: {
     isLogined () {

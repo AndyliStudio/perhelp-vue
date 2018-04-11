@@ -19,6 +19,9 @@ module.exports = {
   plugins: [
     'vue'
   ],
+  globals: {
+    '$t': true
+  },
   // add your custom rules here
   rules: {
     'indent': ['error', 2],

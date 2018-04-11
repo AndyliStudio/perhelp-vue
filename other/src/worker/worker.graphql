@@ -1,0 +1,8 @@
+type listWorker {
+  tags: [Worker]
+  hasMore: Boolean
+}
+
+extend type Query {
+  allWorker(page: Int!, size: Int!): listWorker
+}
