@@ -5,6 +5,7 @@ import LandScape from '@/views/LandScape'
 import Profile from '@/views/freelancer/Profile'
 import Freelancer from '@/views/freelancer/Freelancer'
 import ManagementHome from '@/views/management/ManagementHome'
+import NewJob from '@/views/jobPage/NewJob'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
     path: '/management-home',
     name: 'management-home',
     component: ManagementHome
+  },
+  {
+    path: '/new-job',
+    name: 'new-job',
+    component: NewJob
   },
   {
     path: '/hello-world',

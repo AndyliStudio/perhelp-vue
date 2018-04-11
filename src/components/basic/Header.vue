@@ -5,7 +5,7 @@
       <ul class="header-nav" v-if="isLogined">
         <li><icon name="cube"></icon>{{ $t("nav.worker") }}</li>
         <li><icon name="list-ul"></icon>{{ $t("nav.accept_task") }}</li>
-        <li><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</li>
+        <router-link tag="li"  active-class="linkActive" style="text-decoration: none;"  :to="{name: 'new-job'}"><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</router-link>
         <li><icon name="user"></icon>{{ $t("nav.team") }}</li>
         <li><icon name="connectdevelop"></icon>{{ $t("nav.connect") }}</li>
       </ul>
@@ -103,10 +103,14 @@ export default {
       margin-left: 27px;
       color: #b2b2b2;
       list-style: none;
+      .linkActive{
+        color: #3e3e3e;
+      }
       &>li {
         padding: 0 30px;
         font-size: 15px;
         line-height: 30px;
+        cursor: pointer;
         &:first-child {
           padding-left: 0;
         }
