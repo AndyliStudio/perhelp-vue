@@ -10,13 +10,17 @@
       </div>
 
       <div class="freelancer-list">
-        <div class="freelancer-item" v-for="freelancer in freelancerlist" :key="freelancer.id">
+        <div class="freelancer-item" v-for="freelancer in freelancerlist" :key="freelancer.id" @click="show_profile">
           <div class="freelancer-item-bg"></div>
           <div class="freelancer-title">{{freelancer.name}}</div>
           <div class="skill-type" :class="freelancer.skillcls">{{freelancer.skilltype}}</div>
         </div>
       </div>
     </div>
+
+    <modal name="freelancer-profile" classes="mangment v--modal" :pivotX="1" transition="pop-out" width="42%" height="100%" @before-open="beforeOpen">
+      hello, profile!
+    </modal>
   </div>
 </template>
 
@@ -90,7 +94,9 @@ export default {
   computed: {
   },
   methods: {
-    hi () {}
+    show_profile () {
+      this.$modal.show('freelancer-profile')
+    }
   }
 }
 </script>
