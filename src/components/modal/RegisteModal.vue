@@ -6,23 +6,23 @@
     <div class="form">
       <div class="form-title">{{ $t('registe.pleaseRegiste') }}</div>
       <div class="form-group">
-        <input :class="{'is-error': error.email, 'is-success': !error.email && dirty.email}" id="email" type="text" name="email" :placeholder="$t('registe.emailPlaceHolder')" v-model="email" @change="emailChange" />
+        <input :class="{'is-error': error.email, 'is-success': !error.email && dirty.email}" id="email" type="text" name="email" :placeholder="$t('registe.emailPlaceHolder')" v-model="email" @input="emailInput" />
         <p :class="{'error-tips': true, 'show': error.email}">{{ error.email }}</p>
       </div>
       <div class="form-group">
-        <input :class="{'is-error': error.username, 'is-success': !error.username && dirty.username}" id="username" type="text" name="username" :placeholder="$t('registe.usernamePlaceHolder')" v-model="username" @change="usernameChange" />
+        <input :class="{'is-error': error.username, 'is-success': !error.username && dirty.username}" id="username" type="text" name="username" :placeholder="$t('registe.usernamePlaceHolder')" v-model="username" @input="usernameInput" />
         <p :class="{'error-tips': true, 'show': error.username}">{{ error.username }}</p>
       </div>
       <div class="form-group">
-        <input :class="{'is-error': error.password, 'is-success': !error.password && dirty.password}" id="password" type="password" name="password" :placeholder="$t('registe.passwordPlaceHolder')" v-model="password" @change="passwordChange" />
+        <input :class="{'is-error': error.password, 'is-success': !error.password && dirty.password}" id="password" type="password" name="password" :placeholder="$t('registe.passwordPlaceHolder')" v-model="password" @input="passwordInput" />
         <p :class="{'error-tips': true, 'show': error.password}">{{ error.password }}</p>
       </div>
       <div class="form-group">
-        <input :class="{'is-error': error.rePassword, 'is-success': !error.rePassword && dirty.rePassword && password === rePassword}" id="rePassword" type="password" name="rePassword" :placeholder="$t('registe.rePasswordPlaceHolder')" v-model="rePassword" @change="rePasswordChange" />
+        <input :class="{'is-error': error.rePassword, 'is-success': !error.rePassword && dirty.rePassword && password === rePassword}" id="rePassword" type="password" name="rePassword" :placeholder="$t('registe.rePasswordPlaceHolder')" v-model="rePassword" @input="rePasswordInput" />
         <p :class="{'error-tips': true, 'show': error.rePassword}">{{ error.rePassword }}</p>
       </div>
       <div class="form-group">
-        <button :class="{'login-btn': true, 'disabled': !(isEmailCorrect && isUsernameCorrect && isPasswordCorrect && isRePasswordCorrect)}" @click="doRegiste">{{ $t('registe.registeText') }}</button>
+        <button :class="{'login-btn': true, 'disabled': !(isEmailCorrect && isUsernameCorrect && isPasswordCorrect && isRePasswordCorrect), 'loading': loading}" @click.enter="doRegiste"><icon class="rotate" name="spinner" scale="1"></icon><span>{{ $t('registe.registeText') }}</span></button>
       </div>
       <div class="other-login"><span @click="openLogin">{{ $t('registe.hasAccount') }}</span></div>
     </div>
@@ -31,6 +31,11 @@
 
 <script>
 import gql from 'graphql-tag'
+
+let emailTimer = null
+let usernameTimer = null
+let passwordTimer = null
+let rePasswordTimer = null
 
 export default {
   data () {
@@ -50,7 +55,8 @@ export default {
         username: '',
         password: false,
         rePassword: false
-      }
+      },
+      loading: false
     }
   },
   computed: {
@@ -75,100 +81,141 @@ export default {
     // send signup graphql
     doRegiste () {
       let self = this
-      const signupMutation = gql`
-        mutation {
-          signupUser(email: "${self.email}", username: "${self.username}", password: "${self.password}") {
-            id
-            token
+      if (this.isEmailCorrect && this.isUsernameCorrect && this.isPasswordCorrect && this.isRePasswordCorrect) {
+        const signupMutation = gql`
+          mutation {
+            signupUser(email: "${self.email}", username: "${self.username}", password: "${self.password}") {
+              id
+              token
+            }
           }
-        }
-      `
-      self.$apollo.mutate({
-        mutation: signupMutation,
-        variables: {
-          email: self.email,
-          username: self.username,
-          password: self.password
-        }
-      }).then((data) => {
-        // Result
-        self.showModal = false
-      }).catch((error) => {
-        // Error
-        console.error(error)
-        if (error.toString().indexOf('Email already in use')) {
+        `
+        self.loading = true
+        self.$apollo.mutate({
+          mutation: signupMutation,
+          variables: {
+            email: self.email,
+            username: self.username,
+            password: self.password
+          }
+        }).then((data) => {
+          self.loading = false
+          // signup success
           self.$modal.hide('registe')
           self.$modal.show('dialog', {
-            title: '温馨提示',
-            text: self.$t('registe.emailHasBeenUsed'),
+            title: self.$t('modal.successTitle'),
+            text: self.$t('registe.registeSuccess'),
             buttons: [
               {
-                title: '前往登錄', // Button title
-                default: true, // Will be triggered by default if 'Enter' pressed.
+                title: self.$t('registe.gotoLogin'),
+                default: true,
                 handler: () => {
+                  self.$modal.hide('dialog')
                   self.$modal.show('login-with-email', {email: self.email})
-                } // Button click handler
+                }
               }
             ]
           })
-        }
-      })
+        }).catch((error) => {
+          self.loading = false
+          // Error
+          console.log(error)
+          if (error.toString().indexOf('Email already in use') > -1) {
+            self.$modal.hide('registe')
+            self.$modal.show('dialog', {
+              title: '温馨提示',
+              text: self.$t('registe.emailHasBeenUsed'),
+              buttons: [
+                {
+                  title: self.$t('registe.gotoLogin'), // Button title
+                  default: true,
+                  handler: () => {
+                    self.$modal.hide('dialog')
+                    self.$modal.show('login-with-email', {email: self.email})
+                  }
+                }
+              ]
+            })
+          }
+        })
+      }
     },
     // listen for email change, validate email format
-    emailChange () {
-      if (!this.dirty.email && this.email) {
-        this.dirty.email = true
+    emailInput () {
+      if (emailTimer) {
+        clearTimeout(emailTimer)
       }
-      const emailReg = /^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}$/
-      if (!emailReg.test(this.email)) {
-        // display error info
-        this.error.email = this.$t('registe.emailNoValidate')
-      } else {
-        this.error.email = ''
-      }
+      // email validate delay 1.5s
+      emailTimer = setTimeout(() => {
+        if (!this.dirty.email && this.email) {
+          this.dirty.email = true
+        }
+        const emailReg = /^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}$/
+        if (!emailReg.test(this.email)) {
+          // display error info
+          this.error.email = this.$t('registe.emailNoValidate')
+        } else {
+          this.error.email = ''
+        }
+      }, 1000)
     },
     // listen for username change, validate email format
-    usernameChange () {
-      if (!this.dirty.username && this.username) {
-        this.dirty.username = true
+    usernameInput () {
+      if (usernameTimer) {
+        clearTimeout(usernameTimer)
       }
-      const usernameReg = /^[a-zA-Z0-9_-]{4,18}$/
-      if (!usernameReg.test(this.username)) {
-        // display error info
-        this.error.username = this.$t('registe.usernameNoValidate')
-      } else {
-        this.error.username = ''
-      }
+      usernameTimer = setTimeout(() => {
+        if (!this.dirty.username && this.username) {
+          this.dirty.username = true
+        }
+        const usernameReg = /^[a-zA-Z0-9_-]{4,18}$/
+        if (!usernameReg.test(this.username)) {
+          // display error info
+          this.error.username = this.$t('registe.usernameNoValidate')
+        } else {
+          this.error.username = ''
+        }
+      }, 1000)
     },
     // listen for password change, validate email format
-    passwordChange () {
-      if (!this.dirty.password && this.password) {
-        this.dirty.password = true
+    passwordInput () {
+      if (passwordTimer) {
+        clearTimeout(passwordTimer)
       }
-      const passwordReg = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*$/
-      if (!passwordReg.test(this.password)) {
-        // display error info
-        this.error.password = this.$t('registe.passwordNoValidate')
-      } else {
-        this.error.password = ''
-      }
+      passwordTimer = setTimeout(() => {
+        if (!this.dirty.password && this.password) {
+          this.dirty.password = true
+        }
+        const passwordReg = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*$/
+        if (!passwordReg.test(this.password)) {
+          // display error info
+          this.error.password = this.$t('registe.passwordNoValidate')
+        } else {
+          this.error.password = ''
+        }
+      }, 1000)
     },
     // listen for confirm password change, validate email format
-    rePasswordChange () {
-      if (!this.dirty.rePassword && this.rePassword) {
-        this.dirty.rePassword = true
+    rePasswordInput () {
+      if (rePasswordTimer) {
+        clearTimeout(rePasswordTimer)
       }
-      const rePasswordReg = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*$/
-      if (!rePasswordReg.test(this.rePassword)) {
-        // display error info
-        this.error.rePassword = this.$t('registe.passwordNoValidate')
-      } else {
-        if (this.rePassword === this.password) {
-          this.error.rePassword = ''
-        } else {
-          this.error.rePassword = this.$t('registe.passwordNotSame')
+      rePasswordTimer = setTimeout(() => {
+        if (!this.dirty.rePassword && this.rePassword) {
+          this.dirty.rePassword = true
         }
-      }
+        const rePasswordReg = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*$/
+        if (!rePasswordReg.test(this.rePassword)) {
+          // display error info
+          this.error.rePassword = this.$t('registe.passwordNoValidate')
+        } else {
+          if (this.rePassword === this.password) {
+            this.error.rePassword = ''
+          } else {
+            this.error.rePassword = this.$t('registe.passwordNotSame')
+          }
+        }
+      }, 1000)
     }
   }
 }
@@ -267,6 +314,19 @@ export default {
       &.disabled {
         background: #d7d7d7;
         cursor: not-allowed;
+      }
+      &.loading>.fa-icon {
+        display: inline-block;
+      }
+      &>.fa-icon {
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+        margin-right: 10px;
+        display: none;
+      }
+      &>span {
+        vertical-align: middle;
       }
     }
     .other-login {
