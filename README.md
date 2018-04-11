@@ -21,7 +21,8 @@ npm test
 
 ## Graphql使用教程
 参考demo --- `@/views/hello-world`
-Graphql配置地址：https://console.graph.cool/hello-world/schema/types
+Graphql配置地址：https://console.graph.cool/perhelp/schema/types
+测试Graphql地址：https://api.graph.cool/relay/v1/cjfnntn753h4l01465ofmyxq9
 使用教程：https://github.com/Akryum/vue-apollo#installation
 
 ```

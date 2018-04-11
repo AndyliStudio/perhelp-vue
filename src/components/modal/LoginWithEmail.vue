@@ -4,38 +4,143 @@
       <img src="../../assets/images/logotype-small.png" alt="perhelp" />
     </div>
     <div class="form">
-      <div class="form-title">{{ $t('loginWidthEmail.pleaseLogin') }}</div>
+      <div class="form-title">{{ $t('loginWithEmail.pleaseLogin') }}</div>
       <div class="form-group">
-        <input id="email" type="text" name="email" :placeholder="$t('loginWidthEmail.emailPlaceHolder')" />
-        <p :class="{'error-tips': true, 'show': error.email}">{{error.email}}</p>
+        <input :class="{'is-error': error.email, 'is-success': !error.email && dirty.email}" id="email" type="text" name="email" :placeholder="$t('loginWithEmail.emailPlaceHolder')" v-model="email" @input="emailInput" />
+        <p :class="{'error-tips': true, 'show': error.email}">{{ error.email }}</p>
       </div>
       <div class="form-group">
-        <input id="password" type="password" name="password" :placeholder="$t('loginWidthEmail.passwordPlaceHolder')" />
-        <p :class="{'error-tips': true, 'show': error.password}">{{error.password}}</p>
+        <input :class="{'is-error': error.password, 'is-success': !error.password && dirty.password}" id="password" type="password" name="password" :placeholder="$t('loginWithEmail.passwordPlaceHolder')" v-model="password" @input="passwordInput" />
+        <p :class="{'error-tips': true, 'show': error.password}">{{ error.password }}</p>
       </div>
       <div class="form-group">
-        <p class="forgot-password"><span>{{ $t('loginWidthEmail.forgotPassword') }}</span></p>
-        <button class="login-btn">{{ $t('loginWidthEmail.loginText') }}</button>
+        <p class="forgot-password"><span>{{ $t('loginWithEmail.forgotPassword') }}</span></p>
+        <button :class="{'login-btn': true, 'disabled': !(isEmailCorrect && isPasswordCorrect), 'loading': loading}" @click.enter="doLogin"><icon class="rotate" name="spinner" scale="1"></icon><span>{{ $t('loginWithEmail.loginText') }}</span></button>
       </div>
-      <div class="other-login"><span @click="openLogin">{{ $t('loginWidthEmail.registe') }}</span></div>
+      <div class="other-login"><span @click="openLogin">{{ $t('loginWithEmail.registe') }}</span></div>
     </div>
   </modal>
 </template>
 
 <script>
+import gql from 'graphql-tag'
+
+let emailTimer = null
+let passwordTimer = null
+
 export default {
   data () {
     return {
+      email: '',
+      password: '',
       error: {
         email: '',
         password: ''
-      }
+      },
+      // check email has been inputed
+      dirty: {
+        email: false,
+        password: false
+      },
+      loading: false
+    }
+  },
+  computed: {
+    isEmailCorrect () {
+      return !this.error.email && this.dirty.email
+    },
+    isPasswordCorrect () {
+      return !this.error.password && this.dirty.password
     }
   },
   methods: {
     openLogin () {
       this.$modal.hide('login-with-email')
       this.$modal.show('registe')
+    },
+    doLogin () {
+      let self = this
+      if (self.isEmailCorrect && self.isPasswordCorrect) {
+        const authenticateMutation = gql`
+          mutation {
+            authenticateUser(email: "${self.email}", password: "${self.password}") {
+              id
+              username
+              token
+            }
+          }
+        `
+        self.loading = true
+        self.$apollo.mutate({
+          mutation: authenticateMutation,
+          variables: {
+            email: self.email,
+            password: self.password
+          }
+        }).then((data) => {
+          self.loading = false
+          // login success
+          self.$modal.hide('login-with-email')
+          self.$store.commit('doLogin', {
+            id: data.data.authenticateUser.id,
+            token: data.data.authenticateUser.token,
+            username: data.data.authenticateUser.username,
+            email: self.email
+          })
+        }).catch((error) => {
+          self.loading = false
+          // Error
+          console.log(error)
+          if (error.toString().indexOf('Email has not been registed') > -1) {
+            self.error.email = self.$t('loginWithEmail.emailHasNotBeenRegisted')
+          } else if (error.toString().indexOf('Password error') > -1) {
+            self.error.password = self.$t('loginWithEmail.passwordError')
+          } else {
+            self.$modal.hide('login-width-email')
+            self.$modal.show('dialog', {
+              title: self.$t('modal.tipsTitle'),
+              text: self.$t('loginWithEmail.loginFail'),
+            })
+          }
+        })
+      }
+    },
+    // listen for email change, validate email format
+    emailInput () {
+      if (emailTimer) {
+        clearTimeout(emailTimer)
+      }
+      // email validate delay 1.5s
+      emailTimer = setTimeout(() => {
+        if (!this.dirty.email && this.email) {
+          this.dirty.email = true
+        }
+        const emailReg = /^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}$/
+        if (!emailReg.test(this.email)) {
+          // display error info
+          this.error.email = this.$t('loginWithEmail.emailNoValidate')
+        } else {
+          this.error.email = ''
+        }
+      }, 1000)
+    },
+    // listen for password change, validate email format
+    passwordInput () {
+      if (passwordTimer) {
+        clearTimeout(passwordTimer)
+      }
+      passwordTimer = setTimeout(() => {
+        if (!this.dirty.password && this.password) {
+          this.dirty.password = true
+        }
+        const passwordReg = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*$/
+        if (!passwordReg.test(this.password)) {
+          // display error info
+          this.error.password = this.$t('loginWithEmail.passwordNoValidate')
+        } else {
+          this.error.password = ''
+        }
+      }, 1000)
     }
   }
 }
@@ -100,6 +205,12 @@ export default {
         &:-ms-input-placeholder { /* Internet Explorer 10+ */
             color: #aaaaaa;
         }
+        &.is-success {
+          border-color: #3c763d;
+        }
+        &.is-error {
+          border-color: #a94442;
+        }
       }
     }
     .forgot-password {
@@ -125,6 +236,23 @@ export default {
       border-radius: 23px;
       color: #ffffff;
       letter-spacing: 2px;
+      &.disabled {
+        background: #d7d7d7;
+        cursor: not-allowed;
+      }
+      &.loading>.fa-icon {
+        display: inline-block;
+      }
+      &>.fa-icon {
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+        margin-right: 10px;
+        display: none;
+      }
+      &>span {
+        vertical-align: middle;
+      }
     }
     .other-login {
       position: absolute;

@@ -23,7 +23,7 @@ module.exports = {
     google: 'login width Google',
     other: 'or login width email'
   },
-  loginWidthEmail: {
+  loginWithEmail: {
     pleaseLogin: 'Please login',
     emailPlaceHolder: 'email address',
     passwordPlaceHolder: 'password',
@@ -31,7 +31,9 @@ module.exports = {
     loginText: 'User Login',
     registe: 'No account, registe now!',
     emailNoValidate: 'Please input the correct email.',
-    passwordNotSame: 'Please confirm that you enter the same password twice.',
+    emailHasNotBeenRegisted: 'Email address error',
+    passwordError: 'Password error',
+    loginFail: 'Login fail',
     passwordNoValidate: 'Please confirm passwords that are greater than 6 digits and contain at least numbers, uppercase letters, and lowercase letters'
   },
   registe: {
@@ -48,7 +50,8 @@ module.exports = {
     usernameNoValidate: 'Please enter 4-18 usernames',
     passwordNotSame: 'Please confirm that you enter the same password twice.',
     passwordNoValidate: 'Please confirm passwords that are greater than 6 digits and contain at least numbers, uppercase letters, and lowercase letters',
-    registeSuccess: 'Singup successfully. Please click confirm to login.'
+    registeSuccess: 'Singup successfully. Please click confirm to login.',
+    registeFail: 'Registe fail'
   },
   modal: {
     tipsTitle: 'Tips',

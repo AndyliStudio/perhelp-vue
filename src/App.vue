@@ -56,7 +56,6 @@ export default {
   },
   created () {
     let self = this
-    this.$store.state.app.hasLogined = true
     if (!self.isLogined) {
       self.$nextTick(() => {
         self.$refs.app.addEventListener('scroll', self.changeMemu)

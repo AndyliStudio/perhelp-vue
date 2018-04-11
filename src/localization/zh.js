@@ -23,7 +23,7 @@ module.exports = {
     google: '以Google账户身份登录',
     other: '或者使用其他邮箱登录'
   },
-  loginWidthEmail: {
+  loginWithEmail: {
     pleaseLogin: '请登录',
     emailPlaceHolder: '电子邮件',
     passwordPlaceHolder: '密码',
@@ -31,7 +31,9 @@ module.exports = {
     loginText: '会员登录',
     registe: '没有账号，立即注册',
     emailNoValidate: '请输入有效邮箱地址',
-    passwordNotSame: '请确保两次输入的密码一致',
+    emailHasNotBeenRegisted: '邮箱地址错误',
+    passwordError: '密码错误',
+    loginFail: '登录失败',
     passwordNoValidate: '请輸入大于6位，并且至少包含数字、大写字母、小写字母的密码'
   },
   registe: {
@@ -48,7 +50,8 @@ module.exports = {
     usernameNoValidate: '请输入4-18位的用户名',
     passwordNotSame: '请确保两次输入的密码一致',
     passwordNoValidate: '请輸入大于6位，并且至少包含数字、大写字母、小写字母的密码',
-    registeSuccess: '注册成功，请点击确定前往登录'
+    registeSuccess: '注册成功，请点击确定前往登录',
+    registeFail: '注册失败，请重试'
   },
   modal: {
     tipsTitle: '温馨提示',

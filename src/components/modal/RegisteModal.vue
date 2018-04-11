@@ -22,7 +22,7 @@
         <p :class="{'error-tips': true, 'show': error.rePassword}">{{ error.rePassword }}</p>
       </div>
       <div class="form-group">
-        <button :class="{'login-btn': true, 'disabled': !(isEmailCorrect && isUsernameCorrect && isPasswordCorrect && isRePasswordCorrect), 'loading': loading}" @click.enter="doRegiste"><icon class="rotate" name="spinner" scale="1"></icon><span>{{ $t('registe.registeText') }}</span></button>
+        <button :class="{'registe-btn': true, 'disabled': !(isEmailCorrect && isUsernameCorrect && isPasswordCorrect && isRePasswordCorrect), 'loading': loading}" @click.enter="doRegiste"><icon class="rotate" name="spinner" scale="1"></icon><span>{{ $t('registe.registeText') }}</span></button>
       </div>
       <div class="other-login"><span @click="openLogin">{{ $t('registe.hasAccount') }}</span></div>
     </div>
@@ -46,6 +46,7 @@ export default {
       rePassword: '',
       error: {
         email: '',
+        username: '',
         password: '',
         rePassword: ''
       },
@@ -81,7 +82,7 @@ export default {
     // send signup graphql
     doRegiste () {
       let self = this
-      if (this.isEmailCorrect && this.isUsernameCorrect  && this.isPasswordCorrect&& this.isRePasswordCorrect) {
+      if (this.isEmailCorrect && this.isUsernameCorrect && this.isPasswordCorrect && this.isRePasswordCorrect) {
         const signupMutation = gql`
           mutation {
             signupUser(email: "${self.email}", username: "${self.username}", password: "${self.password}") {
@@ -123,7 +124,7 @@ export default {
           if (error.toString().indexOf('Email already in use') > -1) {
             self.$modal.hide('registe')
             self.$modal.show('dialog', {
-              title: '温馨提示',
+              title: self.$t('modal.tipsTitle'),
               text: self.$t('registe.emailHasBeenUsed'),
               buttons: [
                 {
@@ -135,6 +136,14 @@ export default {
                   }
                 }
               ]
+            })
+          } else if (err.toString().indexOf('Not a valid email') > -1) {
+            self.error.password = this.$t('registe.passwordNoValidate')
+          } else {
+            self.$modal.hide('registe')
+            self.$modal.show('dialog', {
+              title: self.$t('modal.tipsTitle'),
+              text: self.$t('registe.registeFail'),
             })
           }
         })
@@ -295,7 +304,7 @@ export default {
         text-decoration: underline;
       }
     }
-    .login-btn {
+    .registe-btn {
       width: 85%;
       height: 46px;
       display: block;

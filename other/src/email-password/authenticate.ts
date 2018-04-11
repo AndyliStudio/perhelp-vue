@@ -30,13 +30,13 @@ export default async (event: FunctionEvent<EventData>) => {
 
     // no user with this email
     if (!user) {
-      return { error: 'Invalid credentials!' }
+      return { error: 'Email has not been registed!' }
     }
 
     // check password
     const passwordIsCorrect = await bcrypt.compare(password, user.password)
     if (!passwordIsCorrect) {
-      return { error: 'Invalid credentials!' }
+      return { error: 'Password error!' }
     }
 
     // generate node token for existing User node
