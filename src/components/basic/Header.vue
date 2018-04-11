@@ -26,21 +26,11 @@
 </template>
 
 <script>
-import AuthService from './../../auth/AuthService'
-
-const auth = new AuthService()
-const { login, logout, authenticated, authNotifier } = auth
 
 export default {
   data () {
-    authNotifier.on('authChange', authState => {
-      this.authenticated = authState.authenticated
-      this.$store.commit('setHasLogined', this.authenticated)
-    })
     return {
       data: '',
-      auth,
-      authenticated
     }
   },
   computed: {
@@ -54,13 +44,9 @@ export default {
       this.$modal.show('login')
     },
     // open the registe dialog
-    openRegiste () {},
-    login,
-    logout
-  },
-  created () {
-    this.$store.commit('setHasLogined', this.authenticated)
-    this.$modal.show('registe')
+    openRegiste () {
+      this.$modal.show('registe')
+    }
   }
 }
 </script>
