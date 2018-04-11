@@ -150,7 +150,7 @@ export default {
       display: inline-block;
       position: relative;
       background: #ffffff;
-      border-radius:20px;
+      border-radius:30px;
       box-shadow: 2px 3px 7px #cccccc;
       overflow: hidden;
 
