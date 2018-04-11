@@ -18,6 +18,7 @@
 import Header from './components/basic/Header.vue'
 import Footer from './components/basic/Footer.vue'
 import GlobalModal from './components/modal/GlobalModal.vue'
+import { getCookie } from './utils'
 
 export default {
   name: 'App',
@@ -62,6 +63,19 @@ export default {
       })
     } else {
       self.headerBg = false
+    }
+    // judge user is logined
+    const token = getCookie('token')
+    const userInfo = getCookie('userInfo')
+    if (getCookie('token')) {
+      // user has login
+      this.$store.commit('updateLoginInfo', {
+        token,
+        userInfo,
+        hasLogined: true
+      })
+    } else {
+      this.$store.commit('setHasLogined', false)
     }
   }
 }

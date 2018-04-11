@@ -21,6 +21,11 @@ const mutations = {
   setHasLogined (state, data) {
     state.hasLogined = data
   },
+  updateLoginInfo (state, data) {
+    state.userInfo = data.userInfo
+    state.token = data.token
+    state.hasLogined = data.hasLogined
+  },
   doLogin (state, data) {
     state.userInfo = {
       id: data.id,
@@ -30,7 +35,7 @@ const mutations = {
     state.token = data.token
     state.hasLogined = true
     setCookie('token', data.token)
-    setCookie('userInfo', state.userInfo)
+    setCookie('userInfo', JSON.stringify(state.userInfo))
   },
   doLogout () {
     state.token = ''
