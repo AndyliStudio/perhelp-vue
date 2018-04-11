@@ -18,16 +18,26 @@ const actions = {}
 
 // mutations
 const mutations = {
+  setHasLogined (state, data) {
+    state.hasLogined = data
+  },
   doLogin (state, data) {
-    setCookie('perhelp_token', data.token)
+    state.userInfo = {
+      id: data.id,
+      username: data.username,
+      email: data.email
+    }
     state.token = data.token
     state.hasLogined = true
+    setCookie('token', data.token)
+    setCookie('userInfo', state.userInfo)
   },
   doLogout () {
-    deleteCookie('perhelp_token')
     state.token = ''
     state.userInfo = {}
     state.hasLogined = false
+    deleteCookie('token')
+    deleteCookie('userInfo')
   }
 }
 
