@@ -47,7 +47,13 @@ module.exports = {
     emailHasBeenUsed: 'The email address has been registed, please login.',
     usernameNoValidate: 'Please enter 4-18 usernames',
     passwordNotSame: 'Please confirm that you enter the same password twice.',
-    passwordNoValidate: 'Please confirm passwords that are greater than 6 digits and contain at least numbers, uppercase letters, and lowercase letters'
+    passwordNoValidate: 'Please confirm passwords that are greater than 6 digits and contain at least numbers, uppercase letters, and lowercase letters',
+    registeSuccess: 'Singup successfully. Please click confirm to login.'
+  },
+  modal: {
+    tipsTitle: 'Tips',
+    successTitle: 'Congratulations!',
+    alertTitle: 'Notice'
   },
   ManagementHome: {
     Participates_task: 'The task of participation',
