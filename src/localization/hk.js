@@ -47,7 +47,13 @@ module.exports = {
     emailHasBeenUsed: '郵箱已經被註冊，點擊登入',
     usernameNoValidate: '請輸入4-18位的用戶名',
     passwordNotSame: '請確保兩次輸入的密碼一致',
-    passwordNoValidate: '請輸入大於6位，並且至少包含數字、大寫字母、小寫字母的密碼'
+    passwordNoValidate: '請輸入大於6位，並且至少包含數字、大寫字母、小寫字母的密碼',
+    registeSuccess: '註冊成功，請點擊確定前往登入'
+  },
+  modal: {
+    tipsTitle: '溫馨提示',
+    successTitle: '恭喜!',
+    alertTitle: '警告'
   },
   ManagementHome: {
     Participates_task: '參與的任務',
