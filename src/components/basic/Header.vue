@@ -1,8 +1,8 @@
 <template>
   <div class="app-header">
-    <nav class="header-inner" :style="{ 'background': isLogined ? '#ffffff' : 'none' }">
+    <nav class="header-inner" :style="{ 'background': authenticated ? '#ffffff' : 'none' }">
       <router-link class="logo" :to="{name: 'index'}"><img src="../../assets/images/logotype-small.png" alt="Perhelp" /></router-link>
-      <ul class="header-nav" v-if="isLogined">
+      <ul class="header-nav" v-if="authenticated">
         <li><icon name="cube"></icon>{{ $t("nav.worker") }}</li>
         <li><icon name="list-ul"></icon>{{ $t("nav.accept_task") }}</li>
         <li><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</li>
@@ -11,12 +11,12 @@
       </ul>
       <span class="header-word" v-else>{{ $t('nav.word') }}</span>
       <div class="header-profile">
-        <div class="logout-btn" v-if="isLogined">
+        <div class="logout-btn" v-if="authenticated">
           <span>{{ $t("nav.logout") }}</span>
           <img class="avatar" :src="userInfo.avatar || 'https://fs.andylistudio.com/perhelp/v1/avatar.png'" />
         </div>
         <div class="login-btn" v-else>
-          <span @click="openLogin">{{ $t('nav.login') }}</span>
+          <span @click="login">{{ $t('nav.login') }}</span>
           <span class="sprite">/</span>
           <span @click="openRegiste">{{ $t('nav.registe') }}</span>
         </div>
@@ -26,16 +26,24 @@
 </template>
 
 <script>
+import AuthService from './../../auth/AuthService'
+
+const auth = new AuthService()
+const { login, logout, authenticated, authNotifier } = auth
+
 export default {
   data () {
+    authNotifier.on('authChange', authState => {
+      this.authenticated = authState.authenticated
+      this.$store.commit('setHasLogined', this.authenticated)
+    })
     return {
-      data: ''
+      data: '',
+      auth,
+      authenticated
     }
   },
   computed: {
-    isLogined () {
-      return this.$store.state.app.hasLogined
-    },
     userInfo () {
       return this.$store.state.app.userInfo
     }
@@ -46,9 +54,13 @@ export default {
       this.$modal.show('login')
     },
     // open the registe dialog
-    openRegiste () {
-      this.$modal.show('registe')
-    }
+    openRegiste () {},
+    login,
+    logout
+  },
+  created () {
+    this.$store.commit('setHasLogined', this.authenticated)
+    this.$modal.show('registe')
   }
 }
 </script>

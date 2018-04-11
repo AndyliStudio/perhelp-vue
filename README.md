@@ -41,6 +41,14 @@ mutation {
 
 ### [Icon 库](https://fontawesome.com/icons)
 
+```
+
+<icon name="times" > 
+
+name: 取 fa-后面的名称 
+
+```
+
 ### [图片占位符-在线生成图片](https://tool.lu/imageholder/)
 
 > vue-js-modal
