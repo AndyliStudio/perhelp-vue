@@ -137,13 +137,13 @@ export default {
                 }
               ]
             })
-          } else if (err.toString().indexOf('Not a valid email') > -1) {
+          } else if (error.toString().indexOf('Not a valid email') > -1) {
             self.error.password = this.$t('registe.passwordNoValidate')
           } else {
             self.$modal.hide('registe')
             self.$modal.show('dialog', {
               title: self.$t('modal.tipsTitle'),
-              text: self.$t('registe.registeFail'),
+              text: self.$t('registe.registeFail')
             })
           }
         })

@@ -1,5 +1,5 @@
 <template>
-  <modal classes="reference v--modal" :pivotX="1" name="PopupReference" transition="pop-out" height="100%" @before-open="beforeOpen" >
+  <modal classes="reference v--modal" :pivotX="1" name="PopupReference" transition="out-in" height="100%" @before-open="beforeOpen" >
     <div class="box">
       <div id="top">
         <div :class="{'base':true, 'apply':true, 'btn':btn.btnFlaga}" @click="btnClick(1)"  @mouseover="btnOver(1)" @mouseout="btnOut(1)">Apply <icon name="angle-right" ></icon></div>
@@ -131,6 +131,7 @@ export default {
     background-color: white;
     width: trans(1540px);
     height: 100%;
+    transition: all 1s ease-in-out;
   }
   .box{
     height: 100%;

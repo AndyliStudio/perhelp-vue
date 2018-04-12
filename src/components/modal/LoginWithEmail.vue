@@ -99,7 +99,7 @@ export default {
             self.$modal.hide('login-width-email')
             self.$modal.show('dialog', {
               title: self.$t('modal.tipsTitle'),
-              text: self.$t('loginWithEmail.loginFail'),
+              text: self.$t('loginWithEmail.loginFail')
             })
           }
         })

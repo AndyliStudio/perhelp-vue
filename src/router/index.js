@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/views/hello-world/HelloWorld'
 import LandScape from '@/views/LandScape'
-import Callback from '@/views/Callback'
 import Profile from '@/views/freelancer/Profile'
 import Freelancer from '@/views/freelancer/Freelancer'
 import ManagementHome from '@/views/management/ManagementHome'
+import NewJob from '@/views/jobPage/NewJob'
 
 Vue.use(Router)
 
@@ -16,14 +16,14 @@ export default new Router({
     component: LandScape
   },
   {
-    path: '/callback',
-    name: 'Callback',
-    component: Callback
-  },
-  {
     path: '/management-home',
     name: 'management-home',
     component: ManagementHome
+  },
+  {
+    path: '/new-job',
+    name: 'new-job',
+    component: NewJob
   },
   {
     path: '/hello-world',

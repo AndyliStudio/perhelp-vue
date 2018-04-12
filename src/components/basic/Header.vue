@@ -1,22 +1,22 @@
 <template>
   <div class="app-header">
-    <nav class="header-inner" :style="{ 'background': authenticated ? '#ffffff' : 'none' }">
+    <nav class="header-inner" :style="{ 'background': isLogined ? '#ffffff' : 'none' }">
       <router-link class="logo" :to="{name: 'index'}"><img src="../../assets/images/logotype-small.png" alt="Perhelp" /></router-link>
-      <ul class="header-nav" v-if="authenticated">
+      <ul class="header-nav" v-if="isLogined">
         <li><icon name="cube"></icon>{{ $t("nav.worker") }}</li>
         <li><icon name="list-ul"></icon>{{ $t("nav.accept_task") }}</li>
-        <li><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</li>
+        <router-link tag="li"  active-class="linkActive" style="text-decoration: none;"  :to="{name: 'new-job'}"><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</router-link>
         <li><icon name="user"></icon>{{ $t("nav.team") }}</li>
         <li><icon name="connectdevelop"></icon>{{ $t("nav.connect") }}</li>
       </ul>
       <span class="header-word" v-else>{{ $t('nav.word') }}</span>
       <div class="header-profile">
-        <div class="logout-btn" v-if="authenticated">
+        <div class="logout-btn" v-if="isLogined">
           <span>{{ $t("nav.logout") }}</span>
           <img class="avatar" :src="userInfo.avatar || 'https://fs.andylistudio.com/perhelp/v1/avatar.png'" />
         </div>
         <div class="login-btn" v-else>
-          <span @click="login">{{ $t('nav.login') }}</span>
+          <span @click="openLogin">{{ $t('nav.login') }}</span>
           <span class="sprite">/</span>
           <span @click="openRegiste">{{ $t('nav.registe') }}</span>
         </div>
@@ -26,24 +26,17 @@
 </template>
 
 <script>
-import AuthService from './../../auth/AuthService'
-
-const auth = new AuthService()
-const { login, logout, authenticated, authNotifier } = auth
 
 export default {
   data () {
-    authNotifier.on('authChange', authState => {
-      this.authenticated = authState.authenticated
-      this.$store.commit('setHasLogined', this.authenticated)
-    })
     return {
-      data: '',
-      auth,
-      authenticated
+      data: ''
     }
   },
   computed: {
+    isLogined () {
+      return this.$store.state.app.hasLogined
+    },
     userInfo () {
       return this.$store.state.app.userInfo
     }
@@ -54,13 +47,9 @@ export default {
       this.$modal.show('login')
     },
     // open the registe dialog
-    openRegiste () {},
-    login,
-    logout
-  },
-  created () {
-    this.$store.commit('setHasLogined', this.authenticated)
-    this.$modal.show('registe')
+    openRegiste () {
+      this.$modal.show('registe')
+    }
   }
 }
 </script>
@@ -114,10 +103,14 @@ export default {
       margin-left: 27px;
       color: #b2b2b2;
       list-style: none;
+      .linkActive{
+        color: #3e3e3e;
+      }
       &>li {
         padding: 0 30px;
         font-size: 15px;
         line-height: 30px;
+        cursor: pointer;
         &:first-child {
           padding-left: 0;
         }
