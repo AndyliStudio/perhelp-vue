@@ -1,5 +1,5 @@
 <template>
-  <div class="boxs" >
+  <div class="boxs">
     <div class="box-top">
         <span>{{title}}</span>
         <div>
@@ -56,7 +56,8 @@ export default {
     border-radius: 1px;
     height: 320px;
     position: relative;
-    margin-right: 41px;
+    background-color: #fff;
+    /* margin-right: 41px; */
   }
   /* .boxs:nth-child(1){
     margin-right: 41px;
@@ -92,6 +93,7 @@ export default {
     background-color: #d8d8d8;
     border-radius: 8px;
     margin-bottom: 6px;
+    z-index: 1;
   }
   .small:nth-child(1){
     width: 75px;

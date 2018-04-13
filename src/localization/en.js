@@ -83,5 +83,8 @@ module.exports = {
     skill: 'Skill requirements',
     collection: 'Collect this work',
     apply: 'Immediate application'
+  },
+  broadHome: {
+    name: 'Best Match'
   }
 }

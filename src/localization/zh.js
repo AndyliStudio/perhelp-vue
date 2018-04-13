@@ -83,5 +83,8 @@ module.exports = {
     skill: '技能要求',
     collection: '收藏此工作',
     apply: '立即申请'
+  },
+  broadHome: {
+    name: '匹配更多'
   }
 }
