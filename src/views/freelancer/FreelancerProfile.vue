@@ -21,12 +21,12 @@
                 <p class='intro-content'>{{userInfo.introduce}}</p>
             </section>
             <section>
-                <h3 class="title-blue">{{ $t("profile.experience") }}</h3>
+                <h3 class="title-green-d">{{ $t("profile.project") }}</h3>
                 <div class="exper-list">
-                <div class="exper-item" v-for="exper in experlist" :key="exper.id">
-                    <div class="exper-company">{{exper.company}}</div>
-                    <div class="exper-duration">{{exper.duration}}</div>
-                    <div class="exper-title">{{exper.title}}</div>
+                <div class="exper-item" v-for="project in projectlist" :key="project.id">
+                    <div class="exper-company">{{project.name}}</div>
+                    <div class="exper-duration">{{project.progress}}</div>
+                    <div class="exper-title">{{project.total}}</div>
                 </div>
                 </div>
             </section>
@@ -79,6 +79,17 @@ export default {
         time: '1-2小时/周',
         introduce: '这项调查是美国一家在线人力资源服务机构 Paychex 主导展开的，分析人员仔细查看了知名招聘网站 Indeed.com 上超过 40 万份自由职业者的简历。结果显示，从 1970 年到上世纪 90 年代，“自由职业者”还是一个陌生的概念，可是在 2000 年 - 2014 年间，美国的自由职业经济增长就变得刹不住车了——在这 10 年间，它增长了 500% 还要多。'
       },
+      projectlist: [
+        {
+          name: 'ABC Studio Website',
+          progress: '50%',
+          total: '$4300'
+        }, {
+          name: 'ABC Studio App',
+          progress: '80%',
+          total: '$2200'
+        }
+      ],
       experlist: [
         {
           company: 'ABC Studio Limited',

@@ -66,6 +66,7 @@ module.exports = {
   profile: {
     introduce: '我的简介',
     experience: '工作经验',
+    project: '项目名称',
     skill: '技能',
     service: '服务范围',
     works: '作品集',

@@ -66,6 +66,7 @@ module.exports = {
   profile: {
     introduce: 'Introduce',
     experience: 'Experience',
+    project: 'Project',
     skill: 'Skill',
     service: 'Service',
     works: 'Works',
