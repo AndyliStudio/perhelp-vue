@@ -7,15 +7,15 @@
     <div class="job-box">
       <div class="title">任务名称</div>
       <div class="conntent">
-        <input class="jobTitle" name="jobTitle" type="text" placeholder="请输入任务名称">
+        <input class="jobTitle" name="jobTitle" type="text" placeholder="请输入任务名称" v-model="jobTitle">
       </div>
     </div>
     <div class="job-box">
       <div class="title">任务属性</div>
       <div class="conntent">
         <subBtnRadios>
-          <subBtn style="margin-right:32px;" v-model="sx" title="自由工作" :checked="true" label="(20小时 + / 個)"></subBtn>
-          <subBtn v-model="sx" title="兼职" label="(1 - 20小时 + / 個)"></subBtn>
+          <subBtn style="margin-right:45px;" name="workingMode" title="自由工作" :checkeds="workingMode" label="(20小时 + / 個)"></subBtn>
+          <subBtn name="workingMode" title="兼职" :checkeds="workingMode" label="(1 - 20小时 + / 個)"></subBtn>
         </subBtnRadios>
       </div>
     </div>
@@ -23,11 +23,11 @@
       <div class="title">任务类型</div>
       <div class="conntent">
         <subBtnRadios>
-          <subBtn style="margin-bottom:18px;" v-model="sx" title="设计" :checked="true"></subBtn>
-          <subBtn v-model="sx" title="电脑编程"></subBtn>
-          <subBtn v-model="sx" title="数码营销"></subBtn>
-          <subBtn v-model="sx" title="文案创作"></subBtn>
-          <subBtn v-model="sx" title="媒体制作"></subBtn>
+          <subBtn style="margin-bottom:18px;" title="设计" :checkeds="workingType"></subBtn>
+          <subBtn style="margin-bottom:18px;" title="电脑编程" :checkeds="workingType"></subBtn>
+          <subBtn style="margin-bottom:18px;" title="数码营销" :checkeds="workingType"></subBtn>
+          <subBtn style="margin-bottom:18px;" title="文案创作" :checkeds="workingType"></subBtn>
+          <subBtn title="媒体制作"></subBtn>
         </subBtnRadios>
       </div>
     </div>
@@ -35,8 +35,8 @@
       <div class="title">设计形式</div>
       <div class="conntent">
         <subBtnRadios>
-          <subBtn style="margin-right:32px;" v-model="sx" title="固定" :checked="true"></subBtn>
-          <subBtn v-model="sx" title="时薪"></subBtn>
+          <subBtn style="margin-right:45px;" title="固定" :checkeds="workingSalary"></subBtn>
+          <subBtn title="时薪" :checkeds="workingSalary"></subBtn>
         </subBtnRadios>
       </div>
     </div>
@@ -44,27 +44,27 @@
       <div class="title">要求人数</div>
       <div class="conntent">
         <subBtnRadios>
-          <subBtn v-model="sx" title="1人" :checked="true"></subBtn>
-          <subBtn v-model="sx" title="2人"></subBtn>
-          <subBtn v-model="sx" title="3人"></subBtn>
-          <subBtn v-model="sx" title="4人"></subBtn>
+          <subBtn title="1人" :checkeds="workingPeople"></subBtn>
+          <subBtn title="2人" :checkeds="workingPeople"></subBtn>
+          <subBtn title="3人" :checkeds="workingPeople"></subBtn>
+          <subBtn title="4人" :checkeds="workingPeople"></subBtn>
         </subBtnRadios>
       </div>
     </div>
     <div class="job-box">
       <div class="title">任务内容</div>
       <div class="conntent">
-        <textarea name="jobConnent" id="" rows="3" placeholder="请输入任务内容"></textarea>
+        <textarea name="jobConnent" id="" rows="3" placeholder="请输入任务内容" v-model="jobConnent"></textarea>
       </div>
     </div>
     <div class="job-box">
       <div class="title">所需技能</div>
       <div class="conntent">
-        <input class="jobTitle" name="jobSkill" type="text" placeholder="请输入所需技能关键字">
+        <input class="jobTitle" name="jobSkill" type="text" placeholder="请输入所需技能关键字" v-model="jobSkill">
       </div>
     </div>
     <div class="job-box btn">
-      <div class="submit" >新增任务</div>
+      <div class="submit" @click="submit">新增任务</div>
     </div>
   </div>
 </template>
@@ -76,13 +76,21 @@ import subBtn from '../../components/management/subBtn.vue'
 export default {
   data () {
     return {
-      sx: '222'
+      sx: '222',
+      workingMode: '自由工作',
+      workingType: '电脑编程',
+      workingSalary: '固定',
+      workingPeople: '3人',
+      jobTitle: null,
+      jobConnent: null,
+      jobSkill: null
     }
   },
   computed: {},
   methods: {
-    jobClick (data) {
-      console.log(data)
+    submit () {
+      console.log(this.workingMode)
+      console.log(this.jobTitle, this.jobConnent, this.jobSkill)
     }
   },
   components: {

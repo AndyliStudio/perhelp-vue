@@ -4,7 +4,7 @@
     <span class="label">{{label}}</span>
   </div> -->
   <div class="subBtn">
-    <input class="radioGroup" type="radio" ref="radio" name="as" :id="title" :checked="checked" :value="title" @click="select">
+    <input class="radioGroup" type="radio" ref="radio" v-model="checkeds" :value="title" :name="title" :id="title" @click="select">
     <label :for="title" >
         <span :class="{title:flag}">{{title}}</span>
         <span class="label" v-if="label">{{label}}</span>
@@ -17,14 +17,11 @@ export default {
   props: {
     title: String,
     label: String,
-    val: String,
-    checked: {
-      type: Boolean
-    }
+    name: String,
+    checkeds: String
   },
   data () {
     return {
-      data: '',
       flag: false
     }
   },
@@ -34,6 +31,9 @@ export default {
     } else {
       this.flag = false
     }
+    if (this.$refs.radio.checked) {
+      this.$el.querySelector('label').classList.add('zzc')
+    }
   },
   computed: {
 
@@ -41,8 +41,7 @@ export default {
   methods: {
     select (e) {
       e.cancelBubble = true
-      let radios = e.target.parentElement.parentElement.children
-      console.log(radios)
+      let radios = this.$el.parentElement.children
       for (let i = 0; i < radios.length; i++) {
         if (radios[i].children[0] === e.target) {
           radios[i].children[1].classList.add('zzc')
