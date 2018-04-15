@@ -1,66 +1,49 @@
 <template>
   <div class="new-job">
     <div class="title-top">
-      <span>新增任务</span>
+      <span>{{ $t('newJob.title') }}</span>
       <span></span>
     </div>
     <div class="job-box">
-      <div class="title">任务名称</div>
-      <div class="conntent">
-        <input class="jobTitle" name="jobTitle" type="text" placeholder="请输入任务名称" v-model="jobTitle">
+      <div class="title">{{ $t('newJob.name') }}</div>
+      <div class="content">
+        <input class="job-input" name="name" type="text" :placeholder="$t('newJob.namePlaceHolder')" v-model="task.name">
       </div>
     </div>
     <div class="job-box">
-      <div class="title">任务属性</div>
-      <div class="conntent">
-        <subBtnRadios>
-          <subBtn style="margin-right:45px;" name="workingMode" title="自由工作" :checkeds="workingMode" label="(20小时 + / 個)"></subBtn>
-          <subBtn name="workingMode" title="兼职" :checkeds="workingMode" label="(1 - 20小时 + / 個)"></subBtn>
-        </subBtnRadios>
+      <div class="title">{{ $t('newJob.property') }}</div>
+      <div class="content">
+        <RadioBox name="property" :options="radio.property" :value="task.property" @change="handleChange"></RadioBox>
       </div>
     </div>
     <div class="job-box">
-      <div class="title">任务类型</div>
-      <div class="conntent">
-        <subBtnRadios>
-          <subBtn style="margin-bottom:18px;" title="设计" :checkeds="workingType"></subBtn>
-          <subBtn style="margin-bottom:18px;" title="电脑编程" :checkeds="workingType"></subBtn>
-          <subBtn style="margin-bottom:18px;" title="数码营销" :checkeds="workingType"></subBtn>
-          <subBtn style="margin-bottom:18px;" title="文案创作" :checkeds="workingType"></subBtn>
-          <subBtn title="媒体制作"></subBtn>
-        </subBtnRadios>
+      <div class="title">{{ $t('newJob.type') }}</div>
+      <div class="content">
+          <RadioBox name="type" multiple :options="radio.type" :value="task.type" @change="handleChange"></RadioBox>
       </div>
     </div>
     <div class="job-box">
-      <div class="title">设计形式</div>
-      <div class="conntent">
-        <subBtnRadios>
-          <subBtn style="margin-right:45px;" title="固定" :checkeds="workingSalary"></subBtn>
-          <subBtn title="时薪" :checkeds="workingSalary"></subBtn>
-        </subBtnRadios>
+      <div class="title">{{ $t('newJob.salay') }}</div>
+      <div class="content">
+        <RadioBox name="salay" :options="radio.salay" :value="task.salay" @change="handleChange"></RadioBox>
       </div>
     </div>
     <div class="job-box">
-      <div class="title">要求人数</div>
-      <div class="conntent">
-        <subBtnRadios>
-          <subBtn title="1人" :checkeds="workingPeople"></subBtn>
-          <subBtn title="2人" :checkeds="workingPeople"></subBtn>
-          <subBtn title="3人" :checkeds="workingPeople"></subBtn>
-          <subBtn title="4人" :checkeds="workingPeople"></subBtn>
-        </subBtnRadios>
+      <div class="title">{{ $t('newJob.demand') }}</div>
+      <div class="content">
+        <RadioBox name="demand" :options="radio.demand" :value="task.demand" @change="handleChange"></RadioBox>
       </div>
     </div>
     <div class="job-box">
-      <div class="title">任务内容</div>
-      <div class="conntent">
-        <textarea name="jobConnent" id="" rows="3" placeholder="请输入任务内容" v-model="jobConnent"></textarea>
+      <div class="title">{{ $t('newJob.content') }}</div>
+      <div class="content">
+        <textarea name="content" rows="3" :placeholder="$t('newJob.contentPlaceHolder')" v-model="task.content"></textarea>
       </div>
     </div>
     <div class="job-box">
       <div class="title">所需技能</div>
-      <div class="conntent">
-        <input class="jobTitle" name="jobSkill" type="text" placeholder="请输入所需技能关键字" v-model="jobSkill">
+      <div class="content">
+        <input class="job-input" name="skill" type="text" placeholder="请输入所需技能关键字" v-model="task.skill">
       </div>
     </div>
     <div class="job-box btn">
@@ -70,31 +53,64 @@
 </template>
 
 <script>
-import subBtnRadios from '../../components/management/subBtnRadios.vue'
-import subBtn from '../../components/management/subBtn.vue'
+import RadioBox from '../../components/management/RadioBox.vue'
 
 export default {
   data () {
     return {
-      sx: '222',
-      workingMode: '自由工作',
-      workingType: '电脑编程',
-      workingSalary: '固定',
-      workingPeople: '3人',
-      jobTitle: null,
-      jobConnent: null,
-      jobSkill: null
+      radio: {
+        property: [
+          {
+            value: 'freelancer',
+            html: '<p class="radio-title">' + this.$t('newJob.task.property.freelancer') + '</p><p class="radio-des">' + this.$t('newJob.task.property.freelancerDes') + '</p>'
+          },
+          {
+            value: 'parttime',
+            html: '<p class="radio-title">' + this.$t('newJob.task.property.partTime') + '</p><p class="radio-des">' + this.$t('newJob.task.property.partTimeDes') + '</p>'
+          }
+        ],
+        type: [
+          { value: 'design', text: this.$t('newJob.task.type.design') },
+          { value: 'program', text: this.$t('newJob.task.type.program') },
+          { value: 'digital', text: this.$t('newJob.task.type.digital') },
+          { value: 'copyWriting', text: this.$t('newJob.task.type.copyWriting') },
+          { value: 'media', text: this.$t('newJob.task.type.media') }
+        ],
+        salay: [
+          { value: 'fixed', text: this.$t('newJob.task.salay.fixed') },
+          { value: 'hour', text: this.$t('newJob.task.salay.hour') }
+        ],
+        demand: [
+          { value: 1, text: this.$t('newJob.task.demand.one') },
+          { value: 2, text: this.$t('newJob.task.demand.two') },
+          { value: 3, text: this.$t('newJob.task.demand.three') },
+          { value: 4, text: this.$t('newJob.task.demand.four') }
+        ]
+      },
+      task: {
+        name: '',
+        property: 'freelancer',
+        type: ['design'],
+        salay: 'fixed',
+        demand: 1,
+        content: '',
+        skill: []
+      }
     }
   },
   computed: {},
   methods: {
+    handleChange (data) {
+      if (data && data.name) {
+        this.task[data.name] = data.value
+      }
+    },
     submit () {
-      console.log(this.workingMode)
-      console.log(this.jobTitle, this.jobConnent, this.jobSkill)
+      console.log('提交')
     }
   },
   components: {
-    subBtn, subBtnRadios
+    RadioBox
   }
 }
 </script>
@@ -128,7 +144,7 @@ export default {
     color: #606060;
     margin-bottom: 14px;
   }
-  .jobTitle{
+  .job-input{
     width: 100%;
     height: 47px;
     outline: none;

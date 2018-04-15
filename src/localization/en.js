@@ -63,6 +63,44 @@ module.exports = {
     send_task: 'send task',
     contract: 'contract'
   },
+  newJob: {
+    title: 'Add task',
+    name: 'Task name',
+    namePlaceHolder: 'Please input the task name',
+    property: 'Task property',
+    type: 'Task type(can select multiple type)',
+    salay: 'How to count the salay',
+    demand: 'How much people needed',
+    content: 'Task content',
+    contentPlaceHolder: 'Please input the task content',
+    skill: 'Needing skills',
+    skillPlaceHolder: 'Please input the skill what is needing.',
+    task: {
+      property: {
+        freelancer: 'freelancer',
+        freelancerDes: 'everyone work more than 20 hours',
+        partTime: 'partTime',
+        partTimeDes: 'everyone work between 1-20 hours'
+      },
+      type: {
+        design: 'Design',
+        program: 'Program',
+        digital: 'Digitai',
+        copyWriting: 'CopyWriting',
+        media: 'Media'
+      },
+      salay: {
+        fixed: '國定',
+        hour: '時薪'
+      },
+      demand: {
+        one: '1人',
+        two: '2人',
+        three: '3人',
+        four: '4人'
+      }
+    }
+  },
   profile: {
     introduce: 'Introduce',
     experience: 'Experience',
