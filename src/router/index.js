@@ -7,6 +7,7 @@ import Freelancer from '@/views/freelancer/Freelancer'
 import ManagementHome from '@/views/management/ManagementHome'
 import NewJob from '@/views/jobPage/NewJob'
 import BroadHome from '@/views/jobPage/BroadHome'
+import Connect from '@/views/connect/Connect'
 
 Vue.use(Router)
 
@@ -45,5 +46,10 @@ export default new Router({
     path: '/freelancer',
     name: 'freelancer',
     component: Freelancer
+  },
+  {
+    path: '/connect',
+    name: 'connect',
+    component: Connect
   }]
 })
