@@ -124,5 +124,14 @@ module.exports = {
   },
   broadHome: {
     name: 'Best Match'
+  },
+  connect: {
+    tab: {
+      exploreUser: 'Explore User',
+      recruitMembers: 'Recruit Members',
+      friends: 'Friends',
+      following: 'Following'
+    },
+    searchPlaceHolder: 'Please input the keyword'
   }
 }

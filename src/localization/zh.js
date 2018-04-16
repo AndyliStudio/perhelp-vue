@@ -124,5 +124,14 @@ module.exports = {
   },
   broadHome: {
     name: '匹配更多'
+  },
+  connect: {
+    tab: {
+      exploreUser: '寻找同伴',
+      recruitMembers: '招收成员',
+      friends: '已加入朋友',
+      following: '已关注'
+    },
+    searchPlaceHolder: '请输入关键字'
   }
 }

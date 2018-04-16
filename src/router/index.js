@@ -8,6 +8,10 @@ import ManagementHome from '@/views/management/ManagementHome'
 import NewJob from '@/views/jobPage/NewJob'
 import BroadHome from '@/views/jobPage/BroadHome'
 import Connect from '@/views/connect/Connect'
+import ExploreUser from '@/views/connect/ExploreUser'
+import RecruitMembers from '@/views/connect/RecruitMembers'
+import Friends from '@/views/connect/Friends'
+import Following from '@/views/connect/Following'
 
 Vue.use(Router)
 
@@ -50,6 +54,29 @@ export default new Router({
   {
     path: '/connect',
     name: 'connect',
-    component: Connect
+    component: Connect,
+    redirect: '/connect/explore-user',
+    children: [
+      {
+        path: '/connect/explore-user',
+        name: 'explore-user',
+        component: ExploreUser
+      },
+      {
+        path: '/connect/recruit-members',
+        name: 'recruit-members',
+        component: RecruitMembers
+      },
+      {
+        path: '/connect/friends',
+        name: 'friends',
+        component: Friends
+      },
+      {
+        path: '/connect/following',
+        name: 'following',
+        component: Following
+      }
+    ]
   }]
 })
