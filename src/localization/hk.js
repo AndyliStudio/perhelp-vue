@@ -142,5 +142,15 @@ module.exports = {
     introCreateTeam: '構建自己的團隊,招收隊員,創造奇跡',
     joinTeam: '加入團隊',
     introJoinTeam: '構建自己的團隊,招收隊員,創造奇跡'
+  },
+  teamCreate: {
+    createTeam: '建立團隊',
+    teamName: '團隊名稱',
+    teamNameLabel: '請輸入任務名稱',
+    introduce: '團隊簡介',
+    introduceLabel: '請輸入團隊簡介',
+    updateLogo: '上傳 Logo',
+    next: '下壹步',
+    nextLabel: '(邀請 朋友)'
   }
 }

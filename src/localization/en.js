@@ -142,5 +142,15 @@ module.exports = {
     introCreateTeam: 'Build your own team, recruit players, and create a miracle',
     joinTeam: 'join the team',
     introJoinTeam: 'Build your own team, recruit players, and create a miracle'
+  },
+  teamCreate: {
+    createTeam: 'build a team',
+    teamName: 'team name',
+    teamNameLabel: 'please enter the task name',
+    introduce: 'team profile',
+    introduceLabel: 'please enter team profile',
+    updateLogo: 'upload Logo',
+    next: 'next step',
+    nextLabel: '(inviting friends)'
   }
 }

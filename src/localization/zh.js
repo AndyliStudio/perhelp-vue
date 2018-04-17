@@ -146,7 +146,10 @@ module.exports = {
   teamCreate: {
     createTeam: '建立团队',
     teamName: '团队名称',
+    teamNameLabel: '请输入任务名称',
     introduce: '团队简介',
+    introduceLabel: '请输入团队简介',
+    updateLogo: '上传 Logo',
     next: '下一步',
     nextLabel: '(邀请 朋友)'
   }
