@@ -3,11 +3,11 @@
     <nav class="header-inner" :style="{ 'background': isLogined ? '#ffffff' : 'none' }">
       <router-link class="logo" :to="{name: 'index'}"><img src="../../assets/images/logotype-small.png" alt="Perhelp" /></router-link>
       <ul class="header-nav" v-if="isLogined">
-        <li><icon name="cube"></icon>{{ $t("nav.worker") }}</li>
-        <li><icon name="list-ul"></icon>{{ $t("nav.accept_task") }}</li>
-        <router-link tag="li"  active-class="linkActive" style="text-decoration: none;"  :to="{name: 'new-job'}"><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</router-link>
-        <li><icon name="user"></icon>{{ $t("nav.team") }}</li>
-        <li><icon name="connectdevelop"></icon>{{ $t("nav.connect") }}</li>
+        <router-link tag="li" active-class="active" exact :to="{name: 'freelancer'}"><icon name="cube"></icon>{{ $t("nav.worker") }}</router-link>
+        <router-link tag="li" active-class="active" exact :to="{name: 'accept-job'}"><icon name="list-ul"></icon>{{ $t("nav.accept_task") }}</router-link>
+        <router-link tag="li" active-class="active" exact :to="{name: 'new-job'}"><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</router-link>
+        <router-link tag="li" active-class="active" exact :to="{name: 'team'}"><icon name="user"></icon>{{ $t("nav.team") }}</router-link>
+        <router-link tag="li" active-class="active" exact :to="{name: 'connect'}"><icon name="connectdevelop"></icon>{{ $t("nav.connect") }}</router-link>
       </ul>
       <span class="header-word" v-else>{{ $t('nav.word') }}</span>
       <div class="header-profile">
@@ -103,16 +103,28 @@ export default {
       margin-left: 27px;
       color: #b2b2b2;
       list-style: none;
-      .linkActive{
-        color: #3e3e3e;
-      }
       &>li {
         padding: 0 30px;
         font-size: 15px;
         line-height: 30px;
         cursor: pointer;
+        position: relative;
         &:first-child {
           padding-left: 0;
+        }
+        &.active {
+          color: #2bb2ac;
+          &::after {
+            content: '';
+            display: block;
+            width: 120%;
+            height: 4px;
+            border-radius: 2px;
+            background: #2bb2ac;
+            position: relative;
+            top: 18px;
+            left: -10%;
+          }
         }
       }
       .fa-icon{

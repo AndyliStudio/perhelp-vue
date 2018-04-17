@@ -6,6 +6,12 @@ import Profile from '@/views/freelancer/Profile'
 import Freelancer from '@/views/freelancer/Freelancer'
 import ManagementHome from '@/views/management/ManagementHome'
 import NewJob from '@/views/jobPage/NewJob'
+import BroadHome from '@/views/jobPage/BroadHome'
+import Connect from '@/views/connect/Connect'
+import ExploreUser from '@/views/connect/ExploreUser'
+import RecruitMembers from '@/views/connect/RecruitMembers'
+import Friends from '@/views/connect/Friends'
+import Following from '@/views/connect/Following'
 
 Vue.use(Router)
 
@@ -26,6 +32,11 @@ export default new Router({
     component: NewJob
   },
   {
+    path: '/broad-home',
+    name: 'broad-home',
+    component: BroadHome
+  },
+  {
     path: '/hello-world',
     name: 'hello-world',
     component: HelloWorld
@@ -39,5 +50,33 @@ export default new Router({
     path: '/freelancer',
     name: 'freelancer',
     component: Freelancer
+  },
+  {
+    path: '/connect',
+    name: 'connect',
+    component: Connect,
+    redirect: '/connect/explore-user',
+    children: [
+      {
+        path: '/connect/explore-user',
+        name: 'explore-user',
+        component: ExploreUser
+      },
+      {
+        path: '/connect/recruit-members',
+        name: 'recruit-members',
+        component: RecruitMembers
+      },
+      {
+        path: '/connect/friends',
+        name: 'friends',
+        component: Friends
+      },
+      {
+        path: '/connect/following',
+        name: 'following',
+        component: Following
+      }
+    ]
   }]
 })

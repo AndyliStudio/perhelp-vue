@@ -63,6 +63,44 @@ module.exports = {
     send_task: '發出的任務',
     contract: '合約'
   },
+  newJob: {
+    title: '新增任務',
+    name: '任務名稱',
+    namePlaceHolder: '請輸入任務名稱',
+    property: '任務屬性',
+    type: '任務類型（可選擇多於一項）',
+    salay: '計薪形式',
+    demand: '要求人數',
+    content: '任務內容',
+    contentPlaceHolder: '請輸入任務內容',
+    skill: '所需技能',
+    skillPlaceHolder: '請輸入所須技能關鍵字',
+    task: {
+      property: {
+        freelancer: '自由工作者',
+        freelancerDes: '20小時+ / 个',
+        partTime: '兼職',
+        partTimeDes: '1-20小時 / 个'
+      },
+      type: {
+        design: '設計',
+        program: '電腦編程',
+        digital: '數碼營銷',
+        copyWriting: '文案製作',
+        media: '媒體創作'
+      },
+      salay: {
+        fixed: '國定',
+        hour: '時薪'
+      },
+      demand: {
+        one: '1人',
+        two: '2人',
+        three: '3人',
+        four: '4人'
+      }
+    }
+  },
   profile: {
     introduce: '我的簡介',
     experience: '工作經驗',
@@ -83,5 +121,17 @@ module.exports = {
     skill: '技能要求',
     collection: '收藏此工作',
     apply: '立即申請'
+  },
+  broadHome: {
+    name: '匹配更多'
+  },
+  connect: {
+    tab: {
+      exploreUser: '尋找同伴',
+      recruitMembers: '招收成員',
+      friends: '已加入朋友',
+      following: '已關注'
+    },
+    searchPlaceHolder: '請輸入關鍵字'
   }
 }

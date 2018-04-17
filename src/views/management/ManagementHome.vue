@@ -9,7 +9,7 @@
         </div>
         <!-- 列表盒子 -->
         <div class="box-container" >
-          <subBox v-for="(item,index) in sendTask" :key="index" :title="item.title" :label="item.label" @click.native="BoxSelected(item)" :dataSmall="item.data"   @myselect="selected" ></subBox>
+          <subBox style="margin-right: 46px;" v-for="(item,index) in sendTask" :key="index" :title="item.title" :label="item.label" @click.native="BoxSelected(item)" :dataSmall="item.data"   @myselect="selected" ></subBox>
           <div v-if="sendTask.length >3" class="more"  @click="mores('sendTask')">
             <icon name="angle-double-right" ></icon>
           </div>
@@ -23,7 +23,7 @@
         </div>
         <!-- 列表盒子 -->
         <div class="box-container" >
-          <subBox v-for="(item,index) in participatesTask" :key="index" :title="item.title" :label="item.label" @click.native="BoxSelected(item)" :dataSmall="item.data" @myselect="selected" ></subBox>
+          <subBox style="margin-right: 46px;" v-for="(item,index) in participatesTask" :key="index" :title="item.title" :label="item.label" @click.native="BoxSelected(item)" :dataSmall="item.data" @myselect="selected" ></subBox>
           <div v-if="participatesTask.length >3" class="more" @click="mores('participatesTask')">
             <icon name="angle-double-right" ></icon>
           </div>
@@ -37,7 +37,7 @@
         </div>
         <!-- 列表盒子 -->
         <div class="box-container" >
-          <subBox v-for="(item,index) in contract" :key="index" :title="item.title" :label="item.label" @click.native="BoxSelected(item)" :dataSmall="item.data" @myselect="selected" ></subBox>
+          <subBox style="margin-right: 46px;" v-for="(item,index) in contract" :key="index" :title="item.title" :label="item.label" @click.native="BoxSelected(item)" :dataSmall="item.data" @myselect="selected" ></subBox>
           <div v-if="contract.length >3" class="more" @click="mores('contract')">
             <icon name="angle-double-right" ></icon>
           </div>
@@ -146,8 +146,8 @@ export default {
     },
     BoxSelected (item) {
       console.log(item)
-      // this.$modal.show('ManagMent', {item})
-      this.$modal.show('PopupReference', {item})
+      this.$modal.show('ManagMent', {item})
+      // this.$modal.show('PopupReference', {item})
     }
   },
   components: {

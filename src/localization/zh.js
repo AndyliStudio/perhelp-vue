@@ -63,6 +63,44 @@ module.exports = {
     send_task: '发出的任务',
     contract: '合约'
   },
+  newJob: {
+    title: '新增任务',
+    name: '任务名称',
+    namePlaceHolder: '请输入任务名称',
+    property: '任务属性',
+    type: '任务类型（可选择多项）',
+    salay: '计薪形式',
+    demand: '要求人数',
+    content: '任务内容',
+    contentPlaceHolder: '请输入任务内容',
+    skill: '所需技能',
+    skillPlaceHolder: '请输入所需技能关键字',
+    task: {
+      property: {
+        freelancer: '自由工作者',
+        freelancerDes: '20小时+ / 个',
+        partTime: '兼职',
+        partTimeDes: '1-20小时 / 个'
+      },
+      type: {
+        design: '设计',
+        program: '电脑编程',
+        digital: '数码营销',
+        copyWriting: '文案制作',
+        media: '媒体创作'
+      },
+      salay: {
+        fixed: '固定',
+        hour: '时薪'
+      },
+      demand: {
+        one: '1人',
+        two: '2人',
+        three: '3人',
+        four: '4人'
+      }
+    }
+  },
   profile: {
     introduce: '我的简介',
     experience: '工作经验',
@@ -83,5 +121,17 @@ module.exports = {
     skill: '技能要求',
     collection: '收藏此工作',
     apply: '立即申请'
+  },
+  broadHome: {
+    name: '匹配更多'
+  },
+  connect: {
+    tab: {
+      exploreUser: '寻找同伴',
+      recruitMembers: '招收成员',
+      friends: '已加入朋友',
+      following: '已关注'
+    },
+    searchPlaceHolder: '请输入关键字'
   }
 }
