@@ -3,11 +3,11 @@
     <nav class="header-inner" :style="{ 'background': isLogined ? '#ffffff' : 'none' }">
       <router-link class="logo" :to="{name: 'index'}"><img src="../../assets/images/logotype-small.png" alt="Perhelp" /></router-link>
       <ul class="header-nav" v-if="isLogined">
-        <router-link tag="li" active-class="active" exact :to="{name: 'freelancer'}"><icon name="cube"></icon>{{ $t("nav.worker") }}</router-link>
-        <router-link tag="li" active-class="active" exact :to="{name: 'accept-job'}"><icon name="list-ul"></icon>{{ $t("nav.accept_task") }}</router-link>
-        <router-link tag="li" active-class="active" exact :to="{name: 'new-job'}"><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</router-link>
-        <router-link tag="li" active-class="active" exact :to="{name: 'teamhome'}"><icon name="user"></icon>{{ $t("nav.team") }}</router-link>
-        <router-link tag="li" active-class="active" exact :to="{name: 'connect'}"><icon name="connectdevelop"></icon>{{ $t("nav.connect") }}</router-link>
+        <router-link tag="li" active-class="active" :to="{name: 'freelancer'}"><icon name="cube"></icon>{{ $t("nav.worker") }}</router-link>
+        <router-link tag="li" active-class="active" :to="{name: 'new-job'}"><icon name="list-ul"></icon>{{ $t("nav.accept_task") }}</router-link>
+        <router-link tag="li" active-class="active" :to="{name: 'new-job'}"><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</router-link>
+        <router-link tag="li" active-class="active" :to="{name: 'teamhome'}"><icon name="user"></icon>{{ $t("nav.team") }}</router-link>
+        <router-link tag="li" active-class="active" :to="{name: 'connect'}"><icon name="connectdevelop"></icon>{{ $t("nav.connect") }}</router-link>
       </ul>
       <span class="header-word" v-else>{{ $t('nav.word') }}</span>
       <div class="header-profile">
