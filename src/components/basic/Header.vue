@@ -71,11 +71,10 @@ export default {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    /* width: 1100px; */
+    width: 1100px;
     height: 75px;
-    /* padding: 0 16px; */
-    padding: 0 137px 0 133px;
-    /* box-sizing: border-box; */
+    padding: 0 16px;
+    box-sizing: border-box;
     margin: 0 auto;
     -webkit-box-align: center;
     -ms-flex-align: center;
