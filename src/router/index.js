@@ -12,6 +12,7 @@ import ExploreUser from '@/views/connect/ExploreUser'
 import RecruitMembers from '@/views/connect/RecruitMembers'
 import Friends from '@/views/connect/Friends'
 import Following from '@/views/connect/Following'
+import TeamInfo from '@/views/team/TeamInfo'
 
 Vue.use(Router)
 
@@ -50,6 +51,11 @@ export default new Router({
     path: '/freelancer',
     name: 'freelancer',
     component: Freelancer
+  },
+  {
+    path: '/teaminfo',
+    name: 'teaminfo',
+    component: TeamInfo
   },
   {
     path: '/connect',

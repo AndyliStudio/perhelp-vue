@@ -133,5 +133,10 @@ module.exports = {
       following: '已關注'
     },
     searchPlaceHolder: '請輸入關鍵字'
+  },
+  team: {
+    recruit: '招收成員',
+    about: '關於',
+    members: '團隊成員'
   }
 }

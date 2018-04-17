@@ -133,5 +133,10 @@ module.exports = {
       following: '已关注'
     },
     searchPlaceHolder: '请输入关键字'
+  },
+  team: {
+    recruit: '招收成员',
+    about: '关于',
+    members: '团队成员'
   }
 }

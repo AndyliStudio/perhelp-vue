@@ -133,5 +133,10 @@ module.exports = {
       following: 'Following'
     },
     searchPlaceHolder: 'Please input the keyword'
+  },
+  team: {
+    recruit: 'Recruit Members',
+    about: 'About',
+    members: 'Members'
   }
 }
