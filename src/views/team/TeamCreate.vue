@@ -153,7 +153,7 @@ export default {
   .button-team{
     margin: 0 auto;
     width: 348px;
-    height: 93px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,12 +169,12 @@ export default {
     width: 100%;
     display: block;
     text-align: center;
-    margin-bottom: -24px;
+    margin-bottom: -9px;
   }
   .button-team>span:last-child{
     width: 100%;
     display: block;
     text-align: center;
-    margin-top: -24px;
+    margin-top: -9px;
   }
 </style>
