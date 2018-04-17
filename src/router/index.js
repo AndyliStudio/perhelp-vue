@@ -13,6 +13,8 @@ import RecruitMembers from '@/views/connect/RecruitMembers'
 import Friends from '@/views/connect/Friends'
 import Following from '@/views/connect/Following'
 import TeamInfo from '@/views/team/TeamInfo'
+import TeamHome from '@/views/team/TeamHome'
+import TeamCreate from '@/views/team/TeamCreate'
 
 Vue.use(Router)
 
@@ -56,6 +58,16 @@ export default new Router({
     path: '/teaminfo',
     name: 'teaminfo',
     component: TeamInfo
+  },
+  {
+    path: '/teamhome',
+    name: 'teamhome',
+    component: TeamHome
+  },
+  {
+    path: '/teamcreate',
+    name: 'teamcreate',
+    component: TeamCreate
   },
   {
     path: '/connect',

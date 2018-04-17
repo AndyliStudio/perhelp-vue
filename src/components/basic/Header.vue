@@ -6,7 +6,7 @@
         <router-link tag="li" active-class="active" exact :to="{name: 'freelancer'}"><icon name="cube"></icon>{{ $t("nav.worker") }}</router-link>
         <router-link tag="li" active-class="active" exact :to="{name: 'accept-job'}"><icon name="list-ul"></icon>{{ $t("nav.accept_task") }}</router-link>
         <router-link tag="li" active-class="active" exact :to="{name: 'new-job'}"><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</router-link>
-        <router-link tag="li" active-class="active" exact :to="{name: 'team'}"><icon name="user"></icon>{{ $t("nav.team") }}</router-link>
+        <router-link tag="li" active-class="active" exact :to="{name: 'teamhome'}"><icon name="user"></icon>{{ $t("nav.team") }}</router-link>
         <router-link tag="li" active-class="active" exact :to="{name: 'connect'}"><icon name="connectdevelop"></icon>{{ $t("nav.connect") }}</router-link>
       </ul>
       <span class="header-word" v-else>{{ $t('nav.word') }}</span>
@@ -71,9 +71,11 @@ export default {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 1100px;
+    /* width: 1100px; */
     height: 75px;
-    padding: 0 16px;
+    /* padding: 0 16px; */
+    padding: 0 137px 0 133px;
+    /* box-sizing: border-box; */
     margin: 0 auto;
     -webkit-box-align: center;
     -ms-flex-align: center;

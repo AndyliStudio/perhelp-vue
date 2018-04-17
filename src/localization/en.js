@@ -137,6 +137,10 @@ module.exports = {
   team: {
     recruit: 'Recruit Members',
     about: 'About',
-    members: 'Members'
+    members: 'Members',
+    createTeam: 'build / manage my team',
+    introCreateTeam: 'Build your own team, recruit players, and create a miracle',
+    joinTeam: 'join the team',
+    introJoinTeam: 'Build your own team, recruit players, and create a miracle'
   }
 }

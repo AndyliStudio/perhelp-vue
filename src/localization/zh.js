@@ -137,6 +137,17 @@ module.exports = {
   team: {
     recruit: '招收成员',
     about: '关于',
-    members: '团队成员'
+    members: '团队成员',
+    createTeam: '建立 / 管理 我的团队',
+    introCreateTeam: '构建自己的团队,招收队员,创造奇迹',
+    joinTeam: '加入团队',
+    introJoinTeam: '构建自己的团队,招收队员,创造奇迹'
+  },
+  teamCreate: {
+    createTeam: '建立团队',
+    teamName: '团队名称',
+    introduce: '团队简介',
+    next: '下一步',
+    nextLabel: '(邀请 朋友)'
   }
 }

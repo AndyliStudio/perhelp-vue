@@ -158,7 +158,7 @@ export default {
 
 <style scoped>
   .Mangement-home{
-    width: 1100px;
+    width: 1070px;
     margin: 0 auto;
     background-color: white;
     padding-bottom: 150px;

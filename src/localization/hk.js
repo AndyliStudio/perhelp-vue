@@ -137,6 +137,10 @@ module.exports = {
   team: {
     recruit: '招收成員',
     about: '關於',
-    members: '團隊成員'
+    members: '團隊成員',
+    createTeam: '建立 / 管理 我的團隊',
+    introCreateTeam: '構建自己的團隊,招收隊員,創造奇跡',
+    joinTeam: '加入團隊',
+    introJoinTeam: '構建自己的團隊,招收隊員,創造奇跡'
   }
 }
