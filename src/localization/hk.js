@@ -132,7 +132,12 @@ module.exports = {
       friends: '已加入朋友',
       following: '已關注'
     },
-    searchPlaceHolder: '請輸入關鍵字'
+    searchPlaceHolder: '請輸入關鍵字',
+    exploreUser: {},
+    recruitMembers: {
+      followBtn: '關注',
+      joinTeamBtn: '加入團隊'
+    }
   },
   team: {
     recruit: '招收成員',

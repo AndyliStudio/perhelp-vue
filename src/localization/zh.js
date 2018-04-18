@@ -132,7 +132,12 @@ module.exports = {
       friends: '已加入朋友',
       following: '已关注'
     },
-    searchPlaceHolder: '请输入关键字'
+    searchPlaceHolder: '请输入关键字',
+    exploreUser: {},
+    recruitMembers: {
+      followBtn: '关注',
+      joinTeamBtn: '加入团队'
+    }
   },
   team: {
     recruit: '招收成员',

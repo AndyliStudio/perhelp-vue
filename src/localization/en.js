@@ -132,7 +132,12 @@ module.exports = {
       friends: 'Friends',
       following: 'Following'
     },
-    searchPlaceHolder: 'Please input the keyword'
+    searchPlaceHolder: 'Please input the keyword',
+    exploreUser: {},
+    recruitMembers: {
+      followBtn: 'Follow',
+      joinTeamBtn: 'Join'
+    }
   },
   team: {
     recruit: 'Recruit Members',

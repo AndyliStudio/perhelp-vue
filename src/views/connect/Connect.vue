@@ -22,12 +22,11 @@
 <style lang="scss" scoped>
   .connect {
     max-width: 950px;
-    margin: 0 auto;
+    margin: 36px auto;
     .nav {
       height: 50px;
       line-height: 50px;
       overflow: hidden;
-      margin-top: 36px;
       color: #909090;
       .tabs-container {
         height: 100%;
