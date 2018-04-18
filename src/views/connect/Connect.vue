@@ -90,10 +90,22 @@
           border: none;
           outline: none;
           background: #fcffee;
-           -webkit-box-shadow: 0 12px 6px 6px #dedede;
+          -webkit-box-shadow: 0 12px 6px 6px #dedede;
           box-shadow: 0 12px 6px 6px #dedede;
-          padding: 0 20px;
+          padding: 0 25px;
           box-sizing: border-box;
+          &::-webkit-input-placeholder { /* WebKit browsers */
+            color: #c7c9c0;
+          }
+          &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: #c7c9c0;
+          }
+          &::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: #c7c9c0;
+          }
+          &:-ms-input-placeholder { /* Internet Explorer 10+ */
+            color: #c7c9c0;
+          }
         }
       }
     }

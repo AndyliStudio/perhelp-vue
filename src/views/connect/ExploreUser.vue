@@ -35,8 +35,8 @@ export default {
     margin-bottom: 25px;
     .avatar {
       display: inline-block;
-      width: 72px;
-      height: 72px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       -webkit-box-shadow: 0 2px 2px 1px #a7a7a7;
       box-shadow: 0 2px 2px 1px #a7a7a7;
@@ -73,14 +73,14 @@ export default {
     .operation {
       float: right;
       .add {
-        background: #ffffff;
+        background: #4ae4e4;
         width: 30px;
         height: 30px;
         border-radius: 15px;
         border: none;
-        -webkit-box-shadow: 0 2px 1px 1px #d0d0d0;
-        box-shadow: 0 2px 1px 1px #d0d0d0;
-        color: #656565;
+        -webkit-box-shadow: 0 1px 1px 1px #d0d0d0;
+        box-shadow: 0 1px 1px 1px #d0d0d0;
+        color: #ffffff;
         position: relative;
         cursor: pointer;
         & > .fa-icon {
