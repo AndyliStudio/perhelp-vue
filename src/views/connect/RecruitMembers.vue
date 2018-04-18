@@ -1,7 +1,7 @@
 <template>
   <div class="recruit-members">
     <div class="team-item" v-for="item in teams" :key="item.id">
-      <img class="avatar" v-view="item.avatar" :alt="item.name">
+      <img class="avatar" v-view="item.avatar">
       <div class="info">
         <p class="name">
           <span class="name-text">{{ item.name }}</span>

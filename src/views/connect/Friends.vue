@@ -1,7 +1,7 @@
 <template>
   <div class="friends">
     <div class="user-item" v-for="item in partners" :key="item.id">
-      <img class="avatar" v-view="item.avatar || '../../assets/images/avatar.png'" :alt="item.name" />
+      <img class="avatar" v-view="item.avatar || '../../assets/images/avatar.png'" />
       <div class="info">
         <div class="job">{{ item.job }}</div>
         <p class="name">{{ item.name }}</p>

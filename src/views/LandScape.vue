@@ -4,7 +4,7 @@
       <div class="landscape-card" v-for="(item, index) in allWorkers" v-bind:key="index">
         <div class="card-inner">
           <div class="img-container">
-            <img v-view="item.avatar" :alt="item.name" />
+            <img v-view="item.avatar" />
           </div>
           <div class="card-des">
             <div class="card-des-inner">
