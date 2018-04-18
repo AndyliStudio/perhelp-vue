@@ -156,7 +156,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .Mangement-home{
     width: 1070px;
     margin: 0 auto;
@@ -191,7 +191,7 @@ export default {
     padding-right:23px;
     width: 110px;
     min-width: 110px;
-    text-shadow: 0 0 0.2em rgba(0, 0, 0, 0.3), 0 0 0.2em rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   }
   .line{
     display: block;

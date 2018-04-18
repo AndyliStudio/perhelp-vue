@@ -5,7 +5,7 @@
       <ul class="header-nav" v-if="isLogined">
         <router-link tag="li" active-class="active" :to="{name: 'freelancer'}"><icon name="cube"></icon>{{ $t("nav.worker") }}</router-link>
         <router-link tag="li" active-class="active" :to="{name: 'new-job'}"><icon name="list-ul"></icon>{{ $t("nav.accept_task") }}</router-link>
-        <router-link tag="li" active-class="active" :to="{name: 'new-job'}"><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</router-link>
+        <router-link tag="li" active-class="active" :to="{name: 'management'}"><icon name="list-ul"></icon>{{ $t("nav.send_task") }}</router-link>
         <router-link tag="li" active-class="active" :to="{name: 'teamhome'}"><icon name="user"></icon>{{ $t("nav.team") }}</router-link>
         <router-link tag="li" active-class="active" :to="{name: 'connect'}"><icon name="connectdevelop"></icon>{{ $t("nav.connect") }}</router-link>
       </ul>

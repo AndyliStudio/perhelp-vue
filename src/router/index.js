@@ -4,7 +4,7 @@ import HelloWorld from '@/views/hello-world/HelloWorld'
 import LandScape from '@/views/LandScape'
 import Profile from '@/views/freelancer/Profile'
 import Freelancer from '@/views/freelancer/Freelancer'
-import ManagementHome from '@/views/management/ManagementHome'
+import Management from '@/views/management/Management'
 import NewJob from '@/views/jobPage/NewJob'
 import BroadHome from '@/views/jobPage/BroadHome'
 import Connect from '@/views/connect/Connect'
@@ -25,9 +25,9 @@ export default new Router({
     component: LandScape
   },
   {
-    path: '/management-home',
-    name: 'management-home',
-    component: ManagementHome
+    path: '/management',
+    name: 'management',
+    component: Management
   },
   {
     path: '/new-job',
